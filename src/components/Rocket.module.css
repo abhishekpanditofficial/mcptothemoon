@@ -1,0 +1,47 @@
+.rocket {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: transparent;
+  line-height: 0;
+  transform: var(--rk-base, none);
+}
+
+button.rocket {
+  cursor: pointer;
+}
+
+.grid {
+  display: grid;
+  line-height: 0;
+  transition: transform 0.15s ease;
+}
+
+/* 1. Idle: gentle vertical bob */
+.interactive .grid {
+  animation: bob 3.4s ease-in-out infinite;
+}
+
+/* 2. Hover: rotate ~-6deg and scale up */
+.interactive:hover .grid {
+  transform: rotate(-6deg) scale(1.06);
+}
+
+@keyframes bob {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .interactive .grid {
+    animation: none;
+  }
+}

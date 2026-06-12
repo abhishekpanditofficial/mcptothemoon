@@ -1,0 +1,195 @@
+:root {
+  /* ── Design tokens ───────────────────────────────────────── */
+  --paper: #f4f1e6;
+  --card: #fffdf5;
+  --ink: #15140f;
+  --blue: #2b6fed;
+  --red: #ef3e36;
+  --yellow: #ffce1f;
+  --green: #1f9d72;
+  --purple: #7b5bd6;
+  --orange: #ff8c1a;
+  --muted: #8a8678;
+  --muted-2: #7a766a;
+  --grid-line: #e9e5d6;
+
+  --press: 'Press Start 2P', monospace;
+  --vt: 'VT323', monospace;
+
+  --shadow-card: 6px 6px 0 var(--ink);
+  --shadow-btn: 3px 3px 0 var(--ink);
+  --shadow-hud: 7px 7px 0 var(--ink);
+
+  color-scheme: light;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: var(--vt);
+  font-size: 22px;
+  line-height: 1.25;
+  color: var(--ink);
+  background: var(--paper);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--press);
+  font-weight: 400;
+  line-height: 1.35;
+  margin: 0;
+}
+
+button {
+  font-family: var(--press);
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+}
+
+img,
+svg {
+  display: block;
+}
+
+/* Faint pixel grid for paper screens */
+.paper-grid {
+  background-color: var(--paper);
+  background-image: linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+/* Dotted halftone for the zine direction */
+.paper-dots {
+  background-color: var(--paper);
+  background-image: radial-gradient(#dcd7c6 1.4px, transparent 1.4px);
+  background-size: 16px 16px;
+}
+
+/* ── Shared arcade primitives ────────────────────────────── */
+.btn {
+  font-family: var(--press);
+  font-size: 9px;
+  line-height: 1;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 12px 16px;
+  border: 3px solid var(--ink);
+  background: var(--card);
+  color: var(--ink);
+  box-shadow: var(--shadow-btn);
+  transition: transform 0.08s ease, box-shadow 0.08s ease;
+}
+.btn:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0 var(--ink);
+}
+.btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 var(--ink);
+}
+.btn--blue {
+  background: var(--blue);
+  color: #fff;
+}
+.btn--red {
+  background: var(--red);
+  color: #fff;
+}
+.btn--yellow {
+  background: var(--yellow);
+  color: var(--ink);
+}
+.btn--big {
+  font-size: 12px;
+  padding: 16px 22px;
+  box-shadow: var(--shadow-card);
+}
+.btn--big:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 8px 8px 0 var(--ink);
+}
+.btn--big:active {
+  transform: translate(3px, 3px);
+  box-shadow: 3px 3px 0 var(--ink);
+}
+
+/* Category / status chips */
+.chip {
+  font-family: var(--press);
+  font-size: 8px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 8px;
+  border: 3px solid var(--ink);
+  background: var(--ink);
+  color: #fff;
+}
+
+/* Section eyebrow label like [ WHAT IS MCP? ] */
+.eyebrow {
+  font-family: var(--press);
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.section {
+  padding: 64px 20px;
+}
+.wrap {
+  max-width: 1120px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Pixel star square */
+.star {
+  width: 8px;
+  height: 8px;
+  display: inline-block;
+}
+
+/* Focus visibility for keyboard users */
+:focus-visible {
+  outline: 3px solid var(--purple);
+  outline-offset: 2px;
+}
+
+/* Respect reduced motion — kill bob, marquee, launch & drift */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

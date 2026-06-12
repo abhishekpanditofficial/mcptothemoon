@@ -1,0 +1,36 @@
+.trail {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.seg {
+  animation: flicker 0.12s steps(2) infinite;
+}
+
+@keyframes flicker {
+  0% {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scaleX(0.78);
+  }
+  100% {
+    opacity: 1;
+    transform: scaleX(1.08);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .seg {
+    animation: none;
+  }
+}

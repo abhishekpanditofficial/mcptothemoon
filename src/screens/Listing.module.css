@@ -1,0 +1,112 @@
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+  margin-bottom: 36px;
+}
+
+.title {
+  font-family: var(--press);
+  font-size: clamp(22px, 5vw, 44px);
+  letter-spacing: 1px;
+  text-shadow: 4px 4px 0 var(--yellow);
+}
+
+.intro {
+  margin: 0;
+  font-size: 24px;
+  line-height: 1.2;
+  max-width: 56ch;
+  color: var(--ink);
+}
+
+.serverGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 22px;
+}
+
+.eventList {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.newsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 22px;
+}
+
+.crewGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 22px;
+}
+
+/* Resource groups */
+.group {
+  margin-bottom: 44px;
+}
+
+.groupHead {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  flex-wrap: wrap;
+  border-bottom: 4px solid var(--ink);
+  padding-bottom: 12px;
+  margin-bottom: 22px;
+}
+
+.groupTitle {
+  font-family: var(--press);
+  font-size: clamp(16px, 3vw, 26px);
+}
+
+.groupBlurb {
+  font-size: 21px;
+  color: var(--muted-2);
+}
+
+.resourceGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+/* Ecosystem facts strip */
+.factStrip {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  background: var(--ink);
+  border: 4px solid var(--ink);
+  box-shadow: var(--shadow-hud);
+  gap: 4px;
+  margin-bottom: 40px;
+}
+
+.fact {
+  background: var(--card);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 20px 12px;
+  text-align: center;
+}
+
+.factValue {
+  font-family: var(--press);
+  font-size: clamp(16px, 3.4vw, 26px);
+  color: var(--blue);
+}
+
+.factLabel {
+  font-family: var(--press);
+  font-size: 8px;
+  letter-spacing: 0.5px;
+  color: var(--muted-2);
+}

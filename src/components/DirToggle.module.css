@@ -1,0 +1,54 @@
+.toggle {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 80;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--card);
+  border: 4px solid var(--ink);
+  box-shadow: var(--shadow-card);
+  padding: 10px 12px;
+}
+
+.lead {
+  font-family: var(--press);
+  font-size: 9px;
+  letter-spacing: 1px;
+  color: var(--ink);
+}
+
+.bar {
+  font-family: var(--press);
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.on,
+.off {
+  font-family: var(--press);
+  font-size: 11px;
+  border: 3px solid var(--ink);
+  padding: 8px 11px;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.on {
+  background: var(--blue);
+  color: #fff;
+}
+
+.off {
+  background: var(--card);
+  color: var(--ink);
+}
+
+@media (max-width: 460px) {
+  .toggle {
+    right: 10px;
+    bottom: 10px;
+    padding: 8px 10px;
+  }
+}

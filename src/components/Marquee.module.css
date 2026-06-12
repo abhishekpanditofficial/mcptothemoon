@@ -1,0 +1,48 @@
+.bar {
+  width: 100%;
+  background: var(--blue);
+  border-bottom: 4px solid var(--ink);
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.inner {
+  display: inline-flex;
+  width: max-content;
+  animation: scroll 18s linear infinite;
+}
+
+.track {
+  display: inline-flex;
+  align-items: center;
+}
+
+.item {
+  font-family: var(--press);
+  font-size: 9px;
+  letter-spacing: 1px;
+  color: #fff;
+  padding: 9px 0;
+  display: inline-flex;
+  align-items: center;
+}
+
+.sep {
+  color: var(--yellow);
+  margin: 0 18px;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .inner {
+    animation: none;
+  }
+}
