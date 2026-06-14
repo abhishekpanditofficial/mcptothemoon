@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react'
 import type { Screen } from './router'
 import { useCounters } from './hooks/useCounters'
+import { useIsMobile } from './hooks/useIsMobile'
 import HomeA from './screens/HomeA'
 import HomeB from './screens/HomeB'
+import MobileHome from './screens/MobileHome'
 import Servers from './screens/Servers'
 import News from './screens/News'
 import Events from './screens/Events'
@@ -13,6 +15,7 @@ import DirToggle from './components/DirToggle'
 export default function App() {
   const [screen, setScreen] = useState<Screen>('homeA')
   const counters = useCounters()
+  const isMobile = useIsMobile()
 
   // jump to top whenever the screen changes
   useEffect(() => {
@@ -20,6 +23,11 @@ export default function App() {
   }, [screen])
 
   const isHome = screen === 'homeA' || screen === 'homeB'
+
+  // Phones get one monolithic, scrollable page; desktop keeps the multi-screen site.
+  if (isMobile) {
+    return <MobileHome counters={counters} />
+  }
 
   return (
     <>

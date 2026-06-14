@@ -1,3 +1,7 @@
+/** Shared external links. One place to rule them all. */
+export const DISCORD_URL = 'https://discord.gg/C25DjtV2R'
+export const DOCS_URL = 'https://modelcontextprotocol.io'
+
 export type ServerColor =
   | 'blue'
   | 'black'
@@ -93,6 +97,9 @@ export const SERVERS: Server[] = [
 
 export type EventColor = 'red' | 'blue' | 'yellow' | 'green' | 'purple'
 
+/** Call-for-papers status. Omit for events without an open submission window. */
+export type CfpStatus = 'open' | 'closed'
+
 export interface EventItem {
   day: string
   month: string
@@ -103,20 +110,26 @@ export interface EventItem {
   color: EventColor
   url: string
   upcoming?: boolean
+  cfp?: CfpStatus
 }
 
-/** Real MCP events. Upcoming ones RSVP; past ones link to a recap. */
+/**
+ * Real MCP / agent events, newest-relevant first: upcoming launches up top,
+ * recent recaps below. CFP status shown where there's a submission window.
+ */
 export const EVENTS: EventItem[] = [
   {
     day: '17',
     month: 'SEP',
     type: 'SUMMIT',
-    title: 'MCP Dev Summit Europe',
-    location: 'Amsterdam, NL · Sept 17–19',
-    blurb: 'Three days of agentic AI on the canals, hosted by the Linux Foundation.',
+    title: 'AGNTCon + MCPCon Europe',
+    location: 'RAI Amsterdam, NL · Sept 17–18',
+    blurb:
+      "The AAIF's flagship European stop — the whole open agentic stack on the canals, under the Linux Foundation.",
     color: 'purple',
-    url: 'https://events.linuxfoundation.org/mcp-dev-summit-north-america/',
+    url: 'https://events.linuxfoundation.org/agntcon-mcpcon-europe/',
     upcoming: true,
+    cfp: 'closed',
   },
   {
     day: '∞',
@@ -130,34 +143,37 @@ export const EVENTS: EventItem[] = [
     upcoming: true,
   },
   {
-    day: '09',
+    day: '11',
     month: 'JUN',
     type: 'SUMMIT',
-    title: 'MCP Dev Summit Bengaluru',
-    location: 'Bengaluru, IN',
-    blurb: 'The summit circuit hit India — server builders and enterprise teams, assemble.',
+    title: 'MCP Dev Summit Mumbai',
+    location: 'Mumbai, IN · India edition',
+    blurb: 'The summit circuit hits India — server builders and enterprise teams, assemble.',
     color: 'blue',
-    url: 'https://infosec-conferences.com/event/20260609-mcp-dev-summit-bengaluru-2026/',
+    url: 'https://sessionize.com/mcp-dev-summit-mumbai-india-2026/',
+    cfp: 'closed',
   },
   {
-    day: '02',
+    day: '04',
     month: 'MAY',
-    type: 'HACKATHON',
-    title: 'MCP × A2A Hackathon — AWS Edition',
-    location: 'San Francisco, CA',
-    blurb: 'A day of agent-to-agent chaos at the AWS Startup Loft. 48 hours of pure vibes.',
+    type: 'AGENTCON',
+    title: 'AgentCon Silicon Valley',
+    location: 'Silicon Valley, CA · Global AI Community',
+    blurb: 'Free one-day agent throwdown — deep-dive talks, workshops and live demos on the Global AI world tour.',
     color: 'red',
-    url: 'https://mcpmanager.ai/blog/ai-conferences-list/',
+    url: 'https://globalai.community/chapters/san-francisco/events/agentcon-silicon-valley/',
+    cfp: 'closed',
   },
   {
     day: '02',
     month: 'APR',
     type: 'SUMMIT',
     title: 'MCP Dev Summit North America',
-    location: 'New York, NY · ~1,200 builders',
-    blurb: 'Gateways, gRPC and observability — the first NA summit signalled serious hardening.',
+    location: 'Marriott Marquis, NYC · Apr 2–3',
+    blurb: 'Gateways, gRPC and observability across ~1,200 builders — the first NA summit signalled serious hardening.',
     color: 'yellow',
     url: 'https://www.infoq.com/news/2026/04/aaif-mcp-summit/',
+    cfp: 'closed',
   },
   {
     day: '23',
@@ -169,6 +185,34 @@ export const EVENTS: EventItem[] = [
     color: 'blue',
     url: 'https://mcpmanager.ai/blog/ai-conferences-list/',
   },
+  {
+    day: '09',
+    month: 'MAR',
+    type: 'AGENTCON',
+    title: 'AgentCon New York',
+    location: 'New York, NY · Global AI Community',
+    blurb: 'Engineers, researchers and founders on what actually works in agent design — the NYC leg of the world tour.',
+    color: 'green',
+    url: 'https://globalai.community/chapters/new-york/events/agentcon-new-york/',
+  },
+]
+
+/**
+ * Realistic public-server counts across the major registries (mid-2026).
+ * The same server is often listed in several places, so these overlap —
+ * there is no single global total, just a very big, very busy ecosystem.
+ */
+export interface RegistryCount {
+  name: string
+  count: string
+  note: string
+}
+
+export const REGISTRY_COUNTS: RegistryCount[] = [
+  { name: 'Glama', count: '35,000+', note: 'largest community index' },
+  { name: 'PulseMCP', count: '15,900+', note: 'curated & monitored' },
+  { name: 'Smithery', count: '7,300+', note: 'one-click installs' },
+  { name: 'Official Registry', count: '2,000+', note: 'verified entries' },
 ]
 
 /** Maps token names to CSS custom-property colors. */

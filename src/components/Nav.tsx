@@ -1,4 +1,6 @@
+import { useState } from 'react'
 import type { Navigate, Screen } from '../router'
+import { DISCORD_URL } from '../data'
 import Rocket from './Rocket'
 import styles from './Nav.module.css'
 
@@ -17,13 +19,52 @@ const LINKS: { label: string; screen: Screen }[] = [
 
 export default function Nav({ current, navigate }: NavProps) {
   const homeActive = current === 'homeA' || current === 'homeB'
+  const [open, setOpen] = useState(false)
+
+  const go = (screen: Screen) => {
+    navigate(screen)
+    setOpen(false)
+  }
+
+  // Home + section links, shared between the desktop row and the mobile sheet.
+  const navButtons = (
+    <>
+      <button
+        className={`btn ${homeActive ? 'btn--yellow' : ''}`}
+        aria-current={homeActive ? 'page' : undefined}
+        onClick={() => go('homeA')}
+      >
+        Home
+      </button>
+      {LINKS.map((l) => (
+        <button
+          key={l.screen}
+          className={`btn ${current === l.screen ? 'btn--yellow' : ''}`}
+          aria-current={current === l.screen ? 'page' : undefined}
+          onClick={() => go(l.screen)}
+        >
+          {l.label}
+        </button>
+      ))}
+      <a
+        className="btn btn--blue"
+        href={DISCORD_URL}
+        target="_blank"
+        rel="noreferrer"
+        aria-label="Join our Discord"
+        onClick={() => setOpen(false)}
+      >
+        Discord
+      </a>
+    </>
+  )
 
   return (
     <nav className={styles.nav}>
       <div className={`${styles.inner} wrap`}>
         <button
           className={styles.brand}
-          onClick={() => navigate('homeA')}
+          onClick={() => go('homeA')}
           aria-label="MCP to the Moon — home"
         >
           <Rocket cell={4} rotate={-18} scale={1.1} ariaHidden />
@@ -32,29 +73,19 @@ export default function Nav({ current, navigate }: NavProps) {
           </span>
         </button>
 
-        <div className={styles.links}>
-          <button
-            className={`btn ${homeActive ? 'btn--yellow' : ''}`}
-            aria-current={homeActive ? 'page' : undefined}
-            onClick={() => navigate('homeA')}
-          >
-            Home
-          </button>
-          {LINKS.map((l) => (
-            <button
-              key={l.screen}
-              className={`btn ${current === l.screen ? 'btn--yellow' : ''}`}
-              aria-current={current === l.screen ? 'page' : undefined}
-              onClick={() => navigate(l.screen)}
-            >
-              {l.label}
-            </button>
-          ))}
-          <a className="btn btn--blue" href="#" aria-label="Join our Discord">
-            Discord
-          </a>
-        </div>
+        <div className={styles.links}>{navButtons}</div>
+
+        <button
+          className={styles.burger}
+          aria-label={open ? 'Close menu' : 'Open menu'}
+          aria-expanded={open}
+          onClick={() => setOpen((o) => !o)}
+        >
+          {open ? '✕' : '☰'}
+        </button>
       </div>
+
+      {open && <div className={styles.sheet}>{navButtons}</div>}
     </nav>
   )
 }

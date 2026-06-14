@@ -76,6 +76,15 @@
   gap: 20px;
 }
 
+/* Caption above a stat strip */
+.stripCaption {
+  margin: 0 0 14px;
+  font-size: 20px;
+  line-height: 1.2;
+  color: var(--muted-2);
+  max-width: 70ch;
+}
+
 /* Ecosystem facts strip */
 .factStrip {
   display: grid;
