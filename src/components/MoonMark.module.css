@@ -1,0 +1,30 @@
+.moon {
+  display: grid;
+  line-height: 0;
+  flex: 0 0 auto;
+}
+
+.moon span {
+  display: block;
+}
+
+/* Gentle idle bob, matching the rocket mascot's liveliness. */
+.bob {
+  animation: moonmarkbob 4.5s ease-in-out infinite;
+}
+
+@keyframes moonmarkbob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bob {
+    animation: none;
+  }
+}

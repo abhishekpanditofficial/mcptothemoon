@@ -27,13 +27,16 @@
 
 .wordmark {
   font-family: var(--press);
-  font-size: 15px;
-  letter-spacing: 1px;
+  font-size: 12px;
+  letter-spacing: 0.5px;
   color: var(--ink);
+  white-space: nowrap;
 }
 
-.slash {
-  color: var(--blue);
+@media (max-width: 380px) {
+  .wordmark {
+    font-size: 10px;
+  }
 }
 
 .links {

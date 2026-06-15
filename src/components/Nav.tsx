@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import type { Navigate, Screen } from '../router'
 import { DISCORD_URL } from '../data'
-import Rocket from './Rocket'
+import MoonMark from './MoonMark'
 import styles from './Nav.module.css'
 
 interface NavProps {
@@ -67,10 +67,8 @@ export default function Nav({ current, navigate }: NavProps) {
           onClick={() => go('homeA')}
           aria-label="MCP to the Moon — home"
         >
-          <Rocket cell={4} rotate={-18} scale={1.1} ariaHidden />
-          <span className={styles.wordmark}>
-            MCP<span className={styles.slash}>//</span>MOON
-          </span>
+          <MoonMark cell={2} tone="gold" ariaHidden />
+          <span className={styles.wordmark}>MCP to the Moon</span>
         </button>
 
         <div className={styles.links}>{navButtons}</div>
