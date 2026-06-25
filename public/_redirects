@@ -1,0 +1,3 @@
+# SPA fallback: let the client-side router handle deep links like /moonpack.
+# Without this, Netlify 404s on any path that has no matching static file.
+/*    /index.html   200

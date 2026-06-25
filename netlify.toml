@@ -1,0 +1,10 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+# SPA fallback so client-side routes (e.g. /moonpack) resolve to index.html
+# instead of returning a 404 on direct navigation or hard refresh.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
