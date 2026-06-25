@@ -209,10 +209,10 @@ export interface RegistryCount {
 }
 
 export const REGISTRY_COUNTS: RegistryCount[] = [
-  { name: 'Glama', count: '35,000+', note: 'largest community index' },
-  { name: 'PulseMCP', count: '15,900+', note: 'curated & monitored' },
-  { name: 'Smithery', count: '7,300+', note: 'one-click installs' },
-  { name: 'Official Registry', count: '2,000+', note: 'verified entries' },
+  { name: 'Glama', count: '48,500+', note: 'largest community index' },
+  { name: 'PulseMCP', count: '19,500+', note: 'curated & monitored' },
+  { name: 'Smithery', count: '6,000+', note: 'one-click installs' },
+  { name: 'Official Registry', count: '9,600+', note: 'verified entries' },
 ]
 
 /** Maps token names to CSS custom-property colors. */
