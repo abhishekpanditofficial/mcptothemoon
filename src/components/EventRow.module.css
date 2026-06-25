@@ -68,6 +68,23 @@
   padding: 5px 7px;
 }
 
+.cfpOpen,
+.cfpClosed {
+  font-family: var(--press);
+  font-size: 8px;
+  letter-spacing: 0.5px;
+  padding: 5px 7px;
+}
+.cfpOpen {
+  color: var(--ink);
+  background: var(--yellow);
+  border: 3px solid var(--ink);
+}
+.cfpClosed {
+  color: var(--muted-2);
+  border: 3px dashed var(--muted);
+}
+
 .blurb {
   margin: 2px 0 0;
   font-size: 20px;

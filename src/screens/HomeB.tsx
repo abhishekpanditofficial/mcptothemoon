@@ -2,6 +2,7 @@ import type { Navigate } from '../router'
 import type { Counters } from '../hooks/useCounters'
 import { fmt } from '../hooks/useCounters'
 import { useLaunch } from '../hooks/useLaunch'
+import { DISCORD_URL, DOCS_URL } from '../data'
 import Rocket from '../components/Rocket'
 import FlameTrail from '../components/FlameTrail'
 import styles from './HomeB.module.css'
@@ -13,6 +14,15 @@ interface HomeBProps {
 
 export default function HomeB({ navigate, counters }: HomeBProps) {
   const { phase, launch, launching } = useLaunch()
+
+  // Blast the rocket off, then ~0.5s later land the user in Discord.
+  const launchToDiscord = () => {
+    if (launching) return
+    launch()
+    window.setTimeout(() => {
+      window.location.href = DISCORD_URL
+    }, 500)
+  }
 
   const stageClass = [
     styles.flyStage,
@@ -42,7 +52,7 @@ export default function HomeB({ navigate, counters }: HomeBProps) {
           <button className={styles.linkR} onClick={() => navigate('resources')}>
             resources
           </button>
-          <a className={styles.discord} href="#">
+          <a className={styles.discord} href={DISCORD_URL} target="_blank" rel="noreferrer">
             DISCORD ↗
           </a>
         </div>
@@ -65,13 +75,20 @@ export default function HomeB({ navigate, counters }: HomeBProps) {
               server, ship a server, send it. We give servers — we take none.
             </p>
             <div className={styles.ctaRow}>
-              <button className="btn btn--red btn--big" onClick={launch} disabled={launching}>
+              <button
+                className="btn btn--red btn--big"
+                onClick={launchToDiscord}
+                disabled={launching}
+              >
                 ▶ Launch
               </button>
               <button className={styles.exploreLink} onClick={() => navigate('servers')}>
                 explore servers →
               </button>
             </div>
+            <p className={styles.launchWarning}>
+              ⚠ heads up: launch will take you to our Discord ↗
+            </p>
             <div className={styles.inlineStats}>
               <span>
                 <b className={styles.blue}>{fmt(counters.builders)}</b> builders
@@ -91,9 +108,9 @@ export default function HomeB({ navigate, counters }: HomeBProps) {
             <span className={styles.trajectory} aria-hidden="true" />
             <button
               className={styles.flyBtn}
-              onClick={launch}
+              onClick={launchToDiscord}
               disabled={launching}
-              aria-label="Launch the rocket"
+              aria-label="Launch the rocket — opens our Discord"
             >
               <span className={stageClass}>
                 <Rocket cell={13} rotate={28} ariaHidden />
@@ -123,7 +140,7 @@ export default function HomeB({ navigate, counters }: HomeBProps) {
             <button className="btn btn--yellow" onClick={() => navigate('servers')}>
               Browse Servers
             </button>
-            <a className={styles.darkBtn} href="#">
+            <a className={styles.darkBtn} href={DOCS_URL} target="_blank" rel="noreferrer">
               Read Docs ↗
             </a>
           </div>
@@ -134,7 +151,12 @@ export default function HomeB({ navigate, counters }: HomeBProps) {
       <section className={`${styles.cta} section`}>
         <div className={styles.ctaInner}>
           <h2 className={styles.ctaTitle}>come build with us 🚀</h2>
-          <a className="btn btn--blue btn--big" href="#">
+          <a
+            className="btn btn--blue btn--big"
+            href={DISCORD_URL}
+            target="_blank"
+            rel="noreferrer"
+          >
             Join the Discord →
           </a>
           <p className={styles.fine}>

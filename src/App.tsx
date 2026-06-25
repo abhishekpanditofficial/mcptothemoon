@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react'
 import type { Screen } from './router'
 import { useCounters } from './hooks/useCounters'
+import { useIsMobile } from './hooks/useIsMobile'
 import HomeA from './screens/HomeA'
 import HomeB from './screens/HomeB'
+import MobileHome from './screens/MobileHome'
 import Servers from './screens/Servers'
 import News from './screens/News'
 import Events from './screens/Events'
@@ -15,6 +17,7 @@ export default function App() {
   const [screen, setScreen] = useState<Screen>('homeA')
   const [path, setPath] = useState(() => window.location.pathname)
   const counters = useCounters()
+  const isMobile = useIsMobile()
 
   // keep the rendered route in sync with browser back/forward navigation
   useEffect(() => {
@@ -34,6 +37,11 @@ export default function App() {
   }
 
   const isHome = screen === 'homeA' || screen === 'homeB'
+
+  // Phones get one monolithic, scrollable page; desktop keeps the multi-screen site.
+  if (isMobile) {
+    return <MobileHome counters={counters} />
+  }
 
   return (
     <>

@@ -1,0 +1,38 @@
+/* Each stacked section gets a hard divider and clears the sticky nav. */
+.section {
+  border-top: 4px solid var(--ink);
+  scroll-margin-top: 84px;
+}
+
+.h2 {
+  font-family: var(--press);
+  font-size: clamp(20px, 6vw, 30px);
+  letter-spacing: 1px;
+  text-shadow: 4px 4px 0 var(--yellow);
+  margin: 10px 0 22px;
+}
+
+/* Full-width arcade "See more / See less" toggle */
+.seeMore {
+  margin-top: 24px;
+  width: 100%;
+  font-family: var(--press);
+  font-size: 11px;
+  line-height: 1;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  padding: 16px;
+  border: 3px solid var(--ink);
+  background: var(--yellow);
+  color: var(--ink);
+  box-shadow: var(--shadow-btn);
+  transition: transform 0.08s ease, box-shadow 0.08s ease;
+}
+.seeMore:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0 var(--ink);
+}
+.seeMore:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 var(--ink);
+}

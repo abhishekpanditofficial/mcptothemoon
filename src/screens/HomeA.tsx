@@ -1,6 +1,6 @@
 import type { Navigate } from '../router'
 import type { Counters } from '../hooks/useCounters'
-import { SERVERS } from '../data'
+import { SERVERS, DISCORD_URL, DOCS_URL } from '../data'
 import { ECOSYSTEM_FACTS } from '../content/resources'
 import { NEWS } from '../content/news'
 import Marquee from '../components/Marquee'
@@ -153,7 +153,7 @@ export default function HomeA({ navigate, counters }: HomeAProps) {
               <button className="btn btn--blue" onClick={() => navigate('servers')}>
                 Browse Servers
               </button>
-              <a className="btn" href="#">
+              <a className="btn" href={DOCS_URL} target="_blank" rel="noreferrer">
                 Read the Docs
               </a>
             </div>
@@ -177,6 +177,7 @@ export default function HomeA({ navigate, counters }: HomeAProps) {
                 <span className={styles.prompt}>$</span> mcp connect hello-moon
               </p>
               <p className={styles.info}>◆ tool registered: launch()</p>
+              <p className={styles.ok}>✓ posthog.capture('rocket_launched') 🦔</p>
               <p className={styles.comment}>// the community did the hard part</p>
               <p>
                 <span className={styles.cursor}>▮</span>
@@ -262,7 +263,12 @@ export default function HomeA({ navigate, counters }: HomeAProps) {
             14,000+ builders are already in the Discord swapping servers, shipping demos
             and yelling WAGMI at 2am. Pull up a chair.
           </p>
-          <a className="btn btn--yellow btn--big" href="#">
+          <a
+            className="btn btn--yellow btn--big"
+            href={DISCORD_URL}
+            target="_blank"
+            rel="noreferrer"
+          >
             Join the Discord →
           </a>
         </div>

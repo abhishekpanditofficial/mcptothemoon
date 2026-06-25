@@ -27,13 +27,16 @@
 
 .wordmark {
   font-family: var(--press);
-  font-size: 15px;
-  letter-spacing: 1px;
+  font-size: 12px;
+  letter-spacing: 0.5px;
   color: var(--ink);
+  white-space: nowrap;
 }
 
-.slash {
-  color: var(--blue);
+@media (max-width: 380px) {
+  .wordmark {
+    font-size: 10px;
+  }
 }
 
 .links {
@@ -43,12 +46,50 @@
   flex-wrap: wrap;
 }
 
-@media (max-width: 540px) {
-  .inner {
-    justify-content: center;
-  }
+/* Hamburger — hidden on desktop, shown on mobile */
+.burger {
+  display: none;
+  font-family: var(--press);
+  font-size: 18px;
+  line-height: 1;
+  width: 46px;
+  height: 46px;
+  align-items: center;
+  justify-content: center;
+  background: var(--card);
+  color: var(--ink);
+  border: 3px solid var(--ink);
+  box-shadow: var(--shadow-btn);
+}
+.burger:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 var(--ink);
+}
+
+/* Mobile dropdown sheet */
+.sheet {
+  display: none;
+}
+
+@media (max-width: 760px) {
   .links {
-    justify-content: center;
+    display: none;
+  }
+  .burger {
+    display: inline-flex;
+  }
+  .sheet {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 16px 20px 20px;
+    border-top: 3px solid var(--ink);
+    background: var(--paper);
+  }
+  /* Full-width tappable targets in the sheet */
+  .sheet :global(.btn) {
     width: 100%;
+    font-size: 11px;
+    padding: 14px 16px;
   }
 }

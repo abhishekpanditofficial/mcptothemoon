@@ -27,15 +27,37 @@ export const NEWS: NewsItem[] = [
     upcoming: true,
   },
   {
-    date: 'JUN 09',
+    date: 'JUN 11',
     year: '2026',
     tag: 'EVENT',
     color: 'purple',
-    title: 'MCP Dev Summit touches down in Bengaluru',
+    title: 'MCP Dev Summit touches down in Mumbai',
     blurb:
       'The summit circuit hits India — contributors, server builders and enterprise teams gather to shape the agentic stack.',
-    source: 'events.linuxfoundation.org',
-    url: 'https://events.linuxfoundation.org/mcp-dev-summit-north-america/',
+    source: 'sessionize.com',
+    url: 'https://sessionize.com/mcp-dev-summit-mumbai-india-2026/',
+  },
+  {
+    date: 'MAY 28',
+    year: '2026',
+    tag: 'SPEC',
+    color: 'blue',
+    title: 'Elicitation + Extensions reshape the protocol',
+    blurb:
+      'The roadmap drops the big one: server-sent events give way to elicitation (multi round-trip requests that carry their own state), and Tasks graduate into the new Extensions framework. Cleaner, statelesser, scalier.',
+    source: 'blog.modelcontextprotocol.io',
+    url: 'https://blog.modelcontextprotocol.io/posts/2026-mcp-roadmap/',
+  },
+  {
+    date: 'FEB 12',
+    year: '2026',
+    tag: 'FUNDING',
+    color: 'green',
+    title: 'Manufact (ex-mcp-use) raises $6.3M seed',
+    blurb:
+      'Peak XV leads the round for the MCP infra platform — with YC, Liquid 2, Ritual and Pioneer along for the ride. Picks and shovels for the agent gold rush.',
+    source: 'siliconangle.com',
+    url: 'https://siliconangle.com/2026/02/12/manufact-raises-6-3m-help-developers-connect-ai-agents-model-context-protocol/',
   },
   {
     date: 'APR 08',
@@ -115,6 +137,28 @@ export const NEWS: NewsItem[] = [
     url: 'https://registry.modelcontextprotocol.io/',
   },
   {
+    date: 'SEP 16',
+    year: '2025',
+    tag: 'FUNDING',
+    color: 'green',
+    title: 'Alpic raises €5.1M for the first MCP-native cloud',
+    blurb:
+      'Partech leads the pre-seed for a Paris platform built to let agents touch the real world over MCP. Founders from Mistral, Datadog and Dataiku chip in.',
+    source: 'eu-startups.com',
+    url: 'https://www.eu-startups.com/2025/09/e5-million-for-paris-based-alpic-to-build-the-first-mcp-native-cloud-platform/',
+  },
+  {
+    date: 'JUL 22',
+    year: '2025',
+    tag: 'FUNDING',
+    color: 'green',
+    title: 'Composio raises $25M Series A',
+    blurb:
+      'Lightspeed leads a round for the toolkit powering 1,000+ MCP integrations — Gmail, Slack, GitHub, Notion and friends, agent-ready out of the box.',
+    source: 'siliconangle.com',
+    url: 'https://siliconangle.com/2025/07/22/composio-raises-25m-funding-ease-ai-agent-development/',
+  },
+  {
     date: 'APR 09',
     year: '2025',
     tag: 'ADOPTION',
@@ -152,10 +196,12 @@ export const NEWS: NewsItem[] = [
 /** Short headlines for the scrolling ticker. */
 export const TICKER: string[] = [
   '🚀 Spec 2026-07-28 RC is out — stateless core + Extensions',
-  '🪐 36,000+ MCP servers and counting',
+  '🪐 35,000+ servers on Glama · 15,900+ on PulseMCP',
   '📡 97M+ monthly SDK downloads',
+  '💸 Manufact raises $6.3M · Composio $25M · Alpic €5.1M',
   '🏛️ MCP now lives at the Linux Foundation (AAIF)',
   '🟢 OpenAI · Google · Microsoft · AWS all speak MCP',
   '🛡️ Patch your servers — read the April security advisory',
-  '🌍 MCP Dev Summit Europe · Amsterdam · Sept 17–19',
+  '🌍 AGNTCon + MCPCon Europe · Amsterdam · Sept 17–18',
+  "🦔 PostHog says: if you didn't capture the event, did it even ship?",
 ]

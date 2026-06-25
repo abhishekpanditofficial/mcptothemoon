@@ -1,3 +1,4 @@
+import { DISCORD_URL } from '../data'
 import Rocket from './Rocket'
 import styles from './Footer.module.css'
 
@@ -17,7 +18,9 @@ export default function Footer() {
           <a href="https://github.com/modelcontextprotocol" target="_blank" rel="noreferrer">
             GitHub
           </a>
-          <a href="#">Discord</a>
+          <a href={DISCORD_URL} target="_blank" rel="noreferrer">
+            Discord
+          </a>
           <a href="https://modelcontextprotocol.io" target="_blank" rel="noreferrer">
             Docs
           </a>
@@ -34,7 +37,8 @@ export default function Footer() {
         </div>
 
         <p className={styles.fine}>
-          Not financial advice. Definitely emotional advice. © 2026 the moon.
+          Not financial advice. Definitely emotional advice. This footer was
+          autocaptured by a hedgehog 🦔. © 2026 the moon.
         </p>
       </div>
     </footer>

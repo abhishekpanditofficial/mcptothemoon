@@ -27,6 +27,11 @@ export default function EventRow({ event }: EventRowProps) {
           ) : (
             <span className={styles.past}>RECAP</span>
           )}
+          {event.cfp && (
+            <span className={event.cfp === 'open' ? styles.cfpOpen : styles.cfpClosed}>
+              CFP {event.cfp === 'open' ? 'OPEN' : 'CLOSED'}
+            </span>
+          )}
         </div>
         <h3 className={styles.title}>{event.title}</h3>
         <span className={styles.loc}>{event.location}</span>

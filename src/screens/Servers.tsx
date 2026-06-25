@@ -1,5 +1,5 @@
 import type { Navigate } from '../router'
-import { SERVERS } from '../data'
+import { SERVERS, REGISTRY_COUNTS } from '../data'
 import Nav from '../components/Nav'
 import ServerCard from '../components/ServerCard'
 import Footer from '../components/Footer'
@@ -35,6 +35,21 @@ export default function Servers({ navigate }: ServersProps) {
               Browse the Official Registry →
             </a>
           </header>
+
+          <p className={styles.stripCaption}>
+            [ HOW MANY SERVERS ARE OUT THERE? ] — counts overlap across registries,
+            so there's no single global total. The ecosystem, by directory:
+          </p>
+          <div className={styles.factStrip}>
+            {REGISTRY_COUNTS.map((r) => (
+              <div key={r.name} className={styles.fact}>
+                <span className={styles.factValue}>{r.count}</span>
+                <span className={styles.factLabel}>
+                  {r.name} · {r.note}
+                </span>
+              </div>
+            ))}
+          </div>
 
           <div className={styles.serverGrid}>
             {SERVERS.map((s) => (
