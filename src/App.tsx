@@ -8,16 +8,30 @@ import News from './screens/News'
 import Events from './screens/Events'
 import Crew from './screens/Crew'
 import Resources from './screens/Resources'
+import MoonPack from './screens/MoonPack'
 import DirToggle from './components/DirToggle'
 
 export default function App() {
   const [screen, setScreen] = useState<Screen>('homeA')
+  const [path, setPath] = useState(() => window.location.pathname)
   const counters = useCounters()
+
+  // keep the rendered route in sync with browser back/forward navigation
+  useEffect(() => {
+    const onPop = () => setPath(window.location.pathname)
+    window.addEventListener('popstate', onPop)
+    return () => window.removeEventListener('popstate', onPop)
+  }, [])
 
   // jump to top whenever the screen changes
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [screen])
+
+  // /moonpack is a standalone landing page with its own nav + footer
+  if (path === '/moonpack' || path === '/moonpack/') {
+    return <MoonPack />
+  }
 
   const isHome = screen === 'homeA' || screen === 'homeB'
 
