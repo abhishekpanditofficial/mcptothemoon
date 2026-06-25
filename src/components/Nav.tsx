@@ -53,6 +53,13 @@ export default function Nav({ current, navigate }: NavProps) {
           <a className="btn btn--blue" href="#" aria-label="Join our Discord">
             Discord
           </a>
+          <a
+            className="btn btn--yellow"
+            href="/moonpack"
+            aria-label="Claim your MoonPack"
+          >
+            MoonPack 🚀
+          </a>
         </div>
       </div>
     </nav>
