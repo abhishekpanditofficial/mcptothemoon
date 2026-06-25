@@ -1,41 +1,17 @@
-import { useEffect, useState } from 'react'
+import type { Screen } from '../router'
+import Nav from '../components/Nav'
+import Footer from '../components/Footer'
 import './MoonPack.css'
 
 /*
  * MoonPack — MCP to the Moon × NitroStack partnership landing page.
  * Ported from the original NitroStack Next.js route into this Vite app as /moonpack.
- * next/link → <a>, next/image → <img>, posthog tracking removed.
+ * Uses the shared site Nav + Footer so the header/footer match the main landing page.
  */
 
 const PARTNER_URL = 'https://mcptothemoon.com'
-const PARTNER_LOGO =
-  'https://res.cloudinary.com/dbtfmldin/image/upload/v1781850552/mcp-to-the-moon_d8y1uj.png'
-const PARTNER_DISCORD_URL = 'https://discord.gg/C25DjtV2R'
 // Where the "Claim your MoonPack" CTAs send members to claim the bundle.
 const CLAIM_URL = 'https://nitrostack.ai/moonpack'
-
-const TICKER_ITEMS = [
-  '14,000+ BUILDERS ONLINE',
-  'MOONPACK IS LIVE',
-  'MCP TO THE MOON',
-  'WAGMI',
-  'LINUX FOUNDATION BACKED',
-]
-
-const NAV_LINKS = [
-  { label: 'Servers', href: `${PARTNER_URL}/servers`, tone: 'y' as const },
-  { label: 'Docs', href: 'https://modelcontextprotocol.io/docs', tone: 'b' as const },
-  { label: 'Events', href: `${PARTNER_URL}/events`, tone: 'r' as const },
-  { label: 'News', href: `${PARTNER_URL}/news`, tone: 'g' as const },
-]
-
-const FOOTER_LINKS = [
-  { label: 'Servers', href: `${PARTNER_URL}/servers` },
-  { label: 'People', href: `${PARTNER_URL}/people` },
-  { label: 'Events', href: `${PARTNER_URL}/events` },
-  { label: 'Resources', href: `${PARTNER_URL}/resources` },
-  { label: 'Discord', href: PARTNER_DISCORD_URL },
-]
 
 const PERKS = [
   {
@@ -115,201 +91,18 @@ const TIMELINE = [
   },
 ]
 
-function MenuToggleIcon({ open }: { open: boolean }) {
-  return (
-    <svg
-      strokeWidth={2.5}
-      fill="none"
-      stroke="currentColor"
-      viewBox="0 0 32 32"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      className="mcp-burger-icon"
-      style={{
-        width: 20,
-        height: 20,
-        transition: 'transform 500ms ease-in-out',
-        transform: open ? 'rotate(-45deg)' : 'none',
-      }}
-    >
-      <path
-        style={{
-          transition: 'all 500ms ease-in-out',
-          strokeDasharray: open ? '20 300' : '12 63',
-          strokeDashoffset: open ? '-32.42px' : undefined,
-        }}
-        d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22"
-      />
-      <path d="M7 16 27 16" />
-    </svg>
-  )
-}
-
-function McpMoonNavbar() {
-  const [open, setOpen] = useState(false)
-
-  useEffect(() => {
-    document.body.style.overflow = open ? 'hidden' : ''
-    return () => {
-      document.body.style.overflow = ''
-    }
-  }, [open])
-
-  const tickerTrack = [...TICKER_ITEMS, ...TICKER_ITEMS]
+export default function MoonPack() {
+  // Section links jump back to the main site, which reads ?screen= on load.
+  const navigate = (screen: Screen) => {
+    window.location.href =
+      screen === 'homeA' || screen === 'homeB' ? '/' : `/?screen=${screen}`
+  }
 
   return (
     <>
-      <div className="mcp-ticker" aria-hidden>
-        <div className="mcp-ticker-inner">
-          {tickerTrack.map((item, i) => (
-            <span key={`${item}-${i}`} className="mcp-ticker-item">
-              {item}
-              <span className="mcp-ticker-sep">★</span>
-            </span>
-          ))}
-        </div>
-      </div>
-
-      <header className="mcp-nav">
-        <div className="mcp-nav-inner">
-          <a href={PARTNER_URL} target="_blank" rel="noopener noreferrer" className="mcp-wordmark">
-            <img src={PARTNER_LOGO} alt="" width={28} height={28} className="rounded-sm" />
-            <span>
-              MCP<span className="mcp-text-yellow">/</span>MOON
-            </span>
-          </a>
-
-          <nav className="mcp-nav-links mcp-nav-links--desktop" aria-label="Main">
-            {NAV_LINKS.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`mcp-nav-link mcp-nav-link--${link.tone}`}
-              >
-                {link.label}
-              </a>
-            ))}
-          </nav>
-
-          <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-            <a
-              href={CLAIM_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mcp-btn mcp-btn--blue mcp-nav-cta"
-            >
-              Claim MoonPack
-            </a>
-
-            <button
-              type="button"
-              className="mcp-btn mcp-nav-burger"
-              onClick={() => setOpen((v) => !v)}
-              aria-label={open ? 'Close menu' : 'Open menu'}
-              aria-expanded={open}
-            >
-              <MenuToggleIcon open={open} />
-            </button>
-          </div>
-        </div>
-
-        {open ? (
-          <div
-            className="mcp-nav-sheet"
-            style={{
-              padding: '16px 20px 20px',
-              borderTop: '3px solid var(--mcp-ink)',
-              display: 'flex',
-              flexDirection: 'column',
-              gap: 10,
-            }}
-          >
-            {NAV_LINKS.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`mcp-nav-link mcp-nav-link--${link.tone}`}
-                onClick={() => setOpen(false)}
-              >
-                {link.label}
-              </a>
-            ))}
-            <a
-              href={CLAIM_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mcp-btn mcp-btn--blue mcp-btn--big"
-              style={{ width: '100%', marginTop: 8 }}
-              onClick={() => setOpen(false)}
-            >
-              Claim MoonPack
-            </a>
-          </div>
-        ) : null}
-      </header>
-    </>
-  )
-}
-
-function McpMoonFooter() {
-  return (
-    <footer className="mcp-footer">
-      <div className="mcp-footer-inner">
-        <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-          <img src={PARTNER_LOGO} alt="" width={32} height={32} />
-          <span className="mcp-footer-wordmark">
-            MCP TO THE MOON <span className="mcp-footer-slash">/</span> WAGMI
-          </span>
-        </div>
-        <p className="mcp-footer-tag">Mission control for the open MCP community.</p>
-        <nav className="mcp-footer-links" aria-label="Footer">
-          {FOOTER_LINKS.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mcp-footer-link"
-            >
-              {link.label}
-            </a>
-          ))}
-        </nav>
-        <p className="mcp-footer-fine">
-          Infra partner:{' '}
-          <a
-            href="https://nitrostack.ai"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ color: 'var(--mcp-yellow)' }}
-          >
-            NitroStack
-          </a>
-          {' · '}
-          <a
-            href={PARTNER_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ color: 'var(--mcp-card)' }}
-          >
-            mcptothemoon.com
-          </a>
-        </p>
-      </div>
-    </footer>
-  )
-}
-
-export default function MoonPack() {
-  return (
-    <div className="mcp-moon-root">
-      <McpMoonNavbar />
-
-      <main>
+      <Nav navigate={navigate} />
+      <div className="mcp-moon-root">
+        <main>
         {/* HERO */}
         <section className="mcp-section" style={{ paddingBottom: 48 }}>
           <div className="mcp-wrap mcp-hero-center">
@@ -509,8 +302,9 @@ export default function MoonPack() {
           </div>
         </section>
       </main>
+      </div>
 
-      <McpMoonFooter />
-    </div>
+      <Footer />
+    </>
   )
 }

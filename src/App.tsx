@@ -13,8 +13,16 @@ import Resources from './screens/Resources'
 import MoonPack from './screens/MoonPack'
 import DirToggle from './components/DirToggle'
 
+const SCREENS: Screen[] = ['homeA', 'homeB', 'servers', 'news', 'events', 'crew', 'resources']
+
+/** Allow deep-linking to a screen via ?screen= (used by links from the /moonpack page). */
+function initialScreen(): Screen {
+  const requested = new URLSearchParams(window.location.search).get('screen')
+  return SCREENS.includes(requested as Screen) ? (requested as Screen) : 'homeA'
+}
+
 export default function App() {
-  const [screen, setScreen] = useState<Screen>('homeA')
+  const [screen, setScreen] = useState<Screen>(initialScreen)
   const [path, setPath] = useState(() => window.location.pathname)
   const counters = useCounters()
   const isMobile = useIsMobile()
