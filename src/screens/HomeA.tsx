@@ -3,7 +3,6 @@ import type { Counters } from '../hooks/useCounters'
 import { SERVERS, DISCORD_URL, DOCS_URL } from '../data'
 import { ECOSYSTEM_FACTS } from '../content/resources'
 import { NEWS } from '../content/news'
-import Marquee from '../components/Marquee'
 import Nav from '../components/Nav'
 import Ticker from '../components/Ticker'
 import Launchpad from '../components/Launchpad'
@@ -65,7 +64,6 @@ const STAR_COLORS = ['var(--blue)', 'var(--red)', 'var(--yellow)', 'var(--green)
 export default function HomeA({ navigate, counters }: HomeAProps) {
   return (
     <div className="paper-grid">
-      <Marquee />
       <Nav current="homeA" navigate={navigate} />
       <Ticker />
 
