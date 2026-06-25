@@ -1,11 +1,11 @@
 import { useState } from 'react'
 import type { Navigate, Screen } from '../router'
 import { DISCORD_URL } from '../data'
-import MoonMark from './MoonMark'
 import styles from './Nav.module.css'
 
 interface NavProps {
-  current: Screen
+  /** Active screen — omit (e.g. on the standalone /moonpack page) to highlight nothing. */
+  current?: Screen
   navigate: Navigate
 }
 
@@ -75,7 +75,14 @@ export default function Nav({ current, navigate }: NavProps) {
           onClick={() => go('homeA')}
           aria-label="MCP to the Moon — home"
         >
-          <MoonMark cell={2} tone="gold" ariaHidden />
+          <img
+            className={styles.logo}
+            src="/mcptothemoonlogo.png"
+            alt=""
+            width={32}
+            height={32}
+            aria-hidden="true"
+          />
           <span className={styles.wordmark}>MCP to the Moon</span>
         </button>
 

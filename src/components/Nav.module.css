@@ -11,8 +11,8 @@
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  padding: 12px 20px;
-  flex-wrap: wrap;
+  padding: 8px 20px;
+  flex-wrap: nowrap;
 }
 
 .brand {
@@ -21,8 +21,15 @@
   gap: 10px;
   background: transparent;
   border: none;
-  padding: 4px;
+  padding: 0;
   cursor: pointer;
+}
+
+.logo {
+  width: 32px;
+  height: 32px;
+  display: block;
+  image-rendering: pixelated;
 }
 
 .wordmark {
@@ -42,8 +49,13 @@
 .links {
   display: flex;
   align-items: center;
-  gap: 10px;
-  flex-wrap: wrap;
+  gap: 6px;
+  flex-wrap: nowrap;
+}
+
+/* Compact nav buttons so the brand + full nav sit on a single row. */
+.links :global(.btn) {
+  padding: 9px 10px;
 }
 
 /* Hamburger — hidden on desktop, shown on mobile */
@@ -71,7 +83,7 @@
   display: none;
 }
 
-@media (max-width: 760px) {
+@media (max-width: 1024px) {
   .links {
     display: none;
   }
