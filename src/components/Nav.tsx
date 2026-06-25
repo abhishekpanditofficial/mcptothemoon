@@ -56,6 +56,14 @@ export default function Nav({ current, navigate }: NavProps) {
       >
         Discord
       </a>
+      <a
+        className="btn btn--yellow"
+        href="/moonpack"
+        aria-label="Claim your MoonPack"
+        onClick={() => setOpen(false)}
+      >
+        MoonPack 🚀
+      </a>
     </>
   )
 
