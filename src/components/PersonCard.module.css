@@ -57,12 +57,18 @@
   flex: 1;
 }
 
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
 .link {
   font-family: var(--press);
   font-size: 9px;
   letter-spacing: 0.5px;
   text-decoration: none;
-  align-self: flex-start;
   background: var(--ink);
   color: #fff;
   border: 3px solid var(--ink);
@@ -75,6 +81,27 @@
   box-shadow: 4px 4px 0 var(--ink);
 }
 .link:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 var(--ink);
+}
+
+.xLink {
+  font-family: var(--press);
+  font-size: 9px;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  background: var(--card);
+  color: var(--ink);
+  border: 3px solid var(--ink);
+  box-shadow: var(--shadow-btn);
+  padding: 10px 12px;
+  transition: transform 0.08s ease, box-shadow 0.08s ease;
+}
+.xLink:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0 var(--ink);
+}
+.xLink:active {
   transform: translate(2px, 2px);
   box-shadow: 1px 1px 0 var(--ink);
 }

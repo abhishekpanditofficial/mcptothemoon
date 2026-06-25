@@ -8,46 +8,244 @@ export interface Person {
   color: PersonColor
   link: string
   linkLabel: string
+  group: PersonGroup
+  /** X / Twitter handle without the leading @ (omitted when there's no verified account). */
+  x?: string
 }
 
-/** The CREW MANIFEST — people shaping MCP worth following. */
+export type PersonGroup =
+  | 'Creators'
+  | 'Lead & Spec Maintainers'
+  | 'Registry & Product'
+  | 'Community & Ecosystem'
+  | 'Agentic AI Foundation'
+  | 'Working Groups & SDKs'
+
+/** Section order for the Hall of Fame. */
+export const PERSON_GROUPS: PersonGroup[] = [
+  'Creators',
+  'Lead & Spec Maintainers',
+  'Registry & Product',
+  'Community & Ecosystem',
+  'Agentic AI Foundation',
+  'Working Groups & SDKs',
+]
+
+/** The HALL OF FAME — people who built and steer MCP, worth following. */
 export const PEOPLE: Person[] = [
+  // ── Creators ────────────────────────────────────────────────────────────
   {
     name: 'David Soria Parra',
     role: 'Co-creator · Lead Maintainer',
     org: 'Anthropic',
-    blurb: 'Co-invented MCP and steers the spec, the registry and the roadmap.',
+    blurb: 'Co-created MCP; Lead Maintainer of the spec and of the MCP Registry.',
     color: 'blue',
-    link: 'https://www.latent.space/p/mcp',
-    linkLabel: 'INTERVIEW ↗',
+    link: 'https://experimentalworks.net/about',
+    linkLabel: 'ABOUT ↗',
+    group: 'Creators',
+    x: 'dsp_',
   },
   {
     name: 'Justin Spahr-Summers',
-    role: 'Co-creator',
+    role: 'Co-inventor · Lead Maintainer Emeritus',
     org: 'Anthropic',
-    blurb: 'The other half of the duo that turned an internal experiment into a standard.',
+    blurb: 'Co-invented MCP and built the first Claude Desktop integration.',
     color: 'red',
-    link: 'https://www.latent.space/p/mcp',
-    linkLabel: 'INTERVIEW ↗',
+    link: 'https://github.com/jspahrsummers',
+    linkLabel: 'GITHUB ↗',
+    group: 'Creators',
+    x: 'jspahrsummers',
   },
+
+  // ── Lead & Spec Maintainers ─────────────────────────────────────────────
   {
     name: 'Den Delimarsky',
     role: 'Lead Maintainer',
-    org: 'MCP Core',
-    blurb: 'Writes the clearest field notes on where MCP is going. Read his blog.',
+    org: 'Anthropic',
+    blurb: 'Authored the Authorization spec (RFC 8707) and led the Nov 2025 release.',
     color: 'green',
-    link: 'https://den.dev/blog/one-year-of-mcp/',
+    link: 'https://den.dev/blog/one-year-of-mcp',
     linkLabel: 'BLOG ↗',
+    group: 'Lead & Spec Maintainers',
+  },
+  {
+    name: 'Caitie McCaffrey',
+    role: 'Core Maintainer',
+    org: 'MCP Core',
+    blurb: 'Steers spec and project direction; distributed-systems engineer (ex-Microsoft, Twitter, Halo).',
+    color: 'purple',
+    link: 'https://github.com/CaitieM20',
+    linkLabel: 'GITHUB ↗',
+    group: 'Lead & Spec Maintainers',
+    x: 'caitie',
   },
   {
     name: 'Clare Liguori',
     role: 'Core Maintainer',
     org: 'AWS',
-    blurb: 'Joined the core crew in 2026 to push enterprise readiness and auth.',
+    blurb: 'Senior Principal Engineer building agentic AI dev tooling (Kiro, Strands Agents SDK).',
     color: 'orange',
-    link: 'https://blog.modelcontextprotocol.io/posts/2026-04-08-maintainer-update/',
-    linkLabel: 'ANNOUNCEMENT ↗',
+    link: 'https://clareliguori.com/about',
+    linkLabel: 'ABOUT ↗',
+    group: 'Lead & Spec Maintainers',
+    x: 'clare_liguori',
   },
+  {
+    name: 'Kurtis Van Gent',
+    role: 'Core Maintainer',
+    org: 'Google',
+    blurb: 'Google engineer contributing to the spec and the surrounding tooling.',
+    color: 'blue',
+    link: 'https://github.com/kurtisvg',
+    linkLabel: 'GITHUB ↗',
+    group: 'Lead & Spec Maintainers',
+  },
+  {
+    name: 'Peter Alexander',
+    role: 'Core Maintainer',
+    org: 'Anthropic',
+    blurb: 'Steers spec and project direction at Anthropic.',
+    color: 'yellow',
+    link: 'https://github.com/pja-ant',
+    linkLabel: 'GITHUB ↗',
+    group: 'Lead & Spec Maintainers',
+  },
+  {
+    name: 'Paul Carleton',
+    role: 'Core Maintainer',
+    org: 'MCP Core',
+    blurb: 'Contributes across the spec and the SDK ecosystem.',
+    color: 'red',
+    link: 'https://github.com/pcarleton',
+    linkLabel: 'GITHUB ↗',
+    group: 'Lead & Spec Maintainers',
+  },
+  {
+    name: 'Nick Cooper',
+    role: 'Core Maintainer',
+    org: 'Anthropic',
+    blurb: 'Works on the spec and project direction at Anthropic.',
+    color: 'green',
+    link: 'https://github.com/nickcoai',
+    linkLabel: 'GITHUB ↗',
+    group: 'Lead & Spec Maintainers',
+  },
+
+  // ── Registry & Product ──────────────────────────────────────────────────
+  {
+    name: 'Theodora Chu',
+    role: 'Product Manager',
+    org: 'Anthropic',
+    blurb: 'Drove MCP product direction and shipped the MCP Registry.',
+    color: 'purple',
+    link: 'https://blog.modelcontextprotocol.io/posts/2025-09-08-mcp-registry-preview/',
+    linkLabel: 'REGISTRY ↗',
+    group: 'Registry & Product',
+    x: 'chu_onthis',
+  },
+  {
+    name: 'Adam Jones',
+    role: 'Registry Maintainer',
+    org: 'Anthropic',
+    blurb: 'Builds the official MCP server registry — searchable and verified.',
+    color: 'orange',
+    link: 'https://github.com/domdomegg',
+    linkLabel: 'GITHUB ↗',
+    group: 'Registry & Product',
+  },
+  {
+    name: 'Toby Padilla',
+    role: 'Head of MCP · Registry Maintainer',
+    org: 'GitHub',
+    blurb: 'Leads MCP at GitHub and maintains the official MCP Registry.',
+    color: 'blue',
+    link: 'https://github.com/toby',
+    linkLabel: 'GITHUB ↗',
+    group: 'Registry & Product',
+    x: 'toby',
+  },
+
+  // ── Community & Ecosystem ───────────────────────────────────────────────
+  {
+    name: 'Tadas Antanavicius',
+    role: 'Maintainer · Community Lead',
+    org: 'PulseMCP',
+    blurb: 'Co-created PulseMCP; Steering Group member who co-maintains the Registry.',
+    color: 'green',
+    link: 'https://www.pulsemcp.com',
+    linkLabel: 'PULSEMCP ↗',
+    group: 'Community & Ecosystem',
+    x: 'tadasayy',
+  },
+  {
+    name: 'Ola Hungerford',
+    role: 'Maintainer · Community Lead',
+    org: 'Nordstrom',
+    blurb: 'Maintains MCP Inspector & the Reference Server; authored the governance model.',
+    color: 'yellow',
+    link: 'https://olahungerford.com',
+    linkLabel: 'SITE ↗',
+    group: 'Community & Ecosystem',
+  },
+  {
+    name: 'Alex Hancock',
+    role: 'Steering Committee',
+    org: 'Block',
+    blurb: 'Spearheaded the MCP Registry alongside PulseMCP; engineer at Block.',
+    color: 'red',
+    link: 'https://alexhancock.com',
+    linkLabel: 'SITE ↗',
+    group: 'Community & Ecosystem',
+    x: 'alexjhancock',
+  },
+  {
+    name: 'Shannon Williams',
+    role: 'Co-Founder & President',
+    org: 'Obot AI',
+    blurb: 'Organizes the MCP Dev Summit, the main MCP community conference.',
+    color: 'blue',
+    link: 'https://mcpdevsummit.ai',
+    linkLabel: 'SUMMIT ↗',
+    group: 'Community & Ecosystem',
+    x: 'smw355',
+  },
+  {
+    name: 'Abhishek Pandit',
+    role: 'Founder & CEO',
+    org: 'NitroStack',
+    blurb: 'Builds NitroStack — SDK, MCP CLI, NitroStudio IDE & NitroCloud for shipping MCP servers.',
+    color: 'purple',
+    link: 'https://nitrostack.ai',
+    linkLabel: 'NITROSTACK ↗',
+    group: 'Community & Ecosystem',
+    x: 'nitrostackai',
+  },
+
+  // ── Agentic AI Foundation ───────────────────────────────────────────────
+  {
+    name: 'David Nalley',
+    role: 'Governing Board Chair',
+    org: 'Agentic AI Foundation',
+    blurb: 'Sets strategy & neutral governance for the body now hosting MCP; Dir. DevEx at AWS.',
+    color: 'orange',
+    link: 'https://aaif.io/board/',
+    linkLabel: 'AAIF BOARD ↗',
+    group: 'Agentic AI Foundation',
+    x: 'ke4qqq',
+  },
+  {
+    name: 'Angie Jones',
+    role: 'VP, Developer Experience',
+    org: 'Agentic AI Foundation',
+    blurb: 'Guides how agentic systems are designed and adopted; Master Inventor.',
+    color: 'green',
+    link: 'https://angiejones.tech',
+    linkLabel: 'SITE ↗',
+    group: 'Agentic AI Foundation',
+    x: 'techgirl1908',
+  },
+
+  // ── Working Groups & SDKs (existing crew kept on) ───────────────────────
   {
     name: 'Ido Salomon',
     role: 'MCP-UI Co-creator',
@@ -56,6 +254,7 @@ export const PEOPLE: Person[] = [
     color: 'purple',
     link: 'https://blog.modelcontextprotocol.io/posts/2025-11-21-mcp-apps/',
     linkLabel: 'MCP APPS ↗',
+    group: 'Working Groups & SDKs',
   },
   {
     name: 'Liad Yosef',
@@ -65,24 +264,7 @@ export const PEOPLE: Person[] = [
     color: 'yellow',
     link: 'https://blog.modelcontextprotocol.io/posts/2025-11-21-mcp-apps/',
     linkLabel: 'MCP APPS ↗',
-  },
-  {
-    name: 'Adam Jones',
-    role: 'Registry Maintainer',
-    org: 'MCP Registry',
-    blurb: 'Keeps the official server registry honest, searchable and verified.',
-    color: 'blue',
-    link: 'https://blog.modelcontextprotocol.io/posts/2025-09-08-mcp-registry-preview/',
-    linkLabel: 'REGISTRY ↗',
-  },
-  {
-    name: 'Nick Cooper',
-    role: 'Steering Contributor',
-    org: 'OpenAI',
-    blurb: 'Helps keep MCP genuinely multi-vendor from the OpenAI side.',
-    color: 'green',
-    link: 'https://modelcontextprotocol.io/community/contributing',
-    linkLabel: 'CONTRIBUTE ↗',
+    group: 'Working Groups & SDKs',
   },
   {
     name: 'Olivier Chafik',
@@ -92,5 +274,6 @@ export const PEOPLE: Person[] = [
     color: 'red',
     link: 'https://github.com/modelcontextprotocol',
     linkLabel: 'GITHUB ↗',
+    group: 'Working Groups & SDKs',
   },
 ]

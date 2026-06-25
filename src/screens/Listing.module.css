@@ -45,6 +45,26 @@
   gap: 22px;
 }
 
+/* Hall of Fame category sections */
+.crewGroup {
+  margin-bottom: 44px;
+}
+
+.crewGroup .groupTitle {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--purple);
+  border-bottom: 4px solid var(--ink);
+  padding-bottom: 12px;
+  margin-bottom: 22px;
+}
+
+.crewGroup .groupTitle::before {
+  content: '★';
+  color: var(--yellow);
+}
+
 /* Resource groups */
 .group {
   margin-bottom: 44px;

@@ -35,9 +35,22 @@ export default function PersonCard({ person }: PersonCardProps) {
       <span className={styles.org}>@ {person.org}</span>
       <p className={styles.blurb}>{person.blurb}</p>
 
-      <a className={styles.link} href={person.link} target="_blank" rel="noreferrer">
-        {person.linkLabel}
-      </a>
+      <div className={styles.actions}>
+        <a className={styles.link} href={person.link} target="_blank" rel="noreferrer">
+          {person.linkLabel}
+        </a>
+        {person.x && (
+          <a
+            className={styles.xLink}
+            href={`https://x.com/${person.x}`}
+            target="_blank"
+            rel="noreferrer"
+            aria-label={`${person.name} on X`}
+          >
+            @{person.x}
+          </a>
+        )}
+      </div>
     </article>
   )
 }
