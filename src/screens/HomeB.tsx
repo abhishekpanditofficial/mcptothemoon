@@ -76,7 +76,7 @@ export default function HomeB({ navigate, counters }: HomeBProps) {
             </p>
             <div className={styles.ctaRow}>
               <button
-                className="btn btn--red btn--big"
+                className="btn btn--blue btn--big"
                 onClick={launchToDiscord}
                 disabled={launching}
               >

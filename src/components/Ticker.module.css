@@ -28,7 +28,7 @@
 .inner {
   display: inline-flex;
   width: max-content;
-  animation: scroll 26s linear infinite;
+  animation: scroll 36s linear infinite;
 }
 
 .track {
