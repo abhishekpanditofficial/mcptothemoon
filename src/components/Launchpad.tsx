@@ -48,7 +48,7 @@ export default function Launchpad({ cell = 16 }: LaunchpadProps) {
       </div>
 
       <button
-        className="btn btn--red btn--big"
+        className="btn btn--blue btn--big"
         onClick={launchToDiscord}
         disabled={launching}
       >

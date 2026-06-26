@@ -5,7 +5,6 @@ import { SERVERS, EVENTS, REGISTRY_COUNTS } from '../data'
 import { NEWS } from '../content/news'
 import { PEOPLE } from '../content/people'
 import { RESOURCE_GROUPS } from '../content/resources'
-import Marquee from '../components/Marquee'
 import Nav from '../components/Nav'
 import Ticker from '../components/Ticker'
 import Launchpad from '../components/Launchpad'
@@ -77,7 +76,6 @@ export default function MobileHome({ counters }: MobileHomeProps) {
 
   return (
     <div className="paper-grid">
-      <Marquee />
       <Nav current="homeA" navigate={scrollTo} />
       <Ticker />
 

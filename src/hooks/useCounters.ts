@@ -6,7 +6,8 @@ export interface Counters {
   stars: number
 }
 
-const START: Counters = { builders: 14271, servers: 318, stars: 12840 }
+// servers = live MCP server count on Glama, the largest registry (verified 2026-06-25).
+const START: Counters = { builders: 14271, servers: 48545, stars: 12840 }
 
 const randInt = (max: number) => Math.floor(Math.random() * (max + 1))
 

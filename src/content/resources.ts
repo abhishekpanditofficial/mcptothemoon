@@ -32,7 +32,7 @@ export const RESOURCE_GROUPS: ResourceGroup[] = [
       {
         title: 'Official Registry',
         kind: 'DIRECTORY',
-        desc: 'Searchable, verified directory of MCP servers — 36,000+ and growing.',
+        desc: 'Searchable, verified directory of MCP servers — 9,600+ and growing.',
         url: 'https://registry.modelcontextprotocol.io/',
         host: 'registry.modelcontextprotocol.io',
         color: 'green',
@@ -154,7 +154,7 @@ export const RESOURCE_GROUPS: ResourceGroup[] = [
       {
         title: 'Find servers for your tools',
         kind: 'STEP 3',
-        desc: 'Browse the registry for Gmail, Notion, Slack and 35,000+ more. Search, click, connect.',
+        desc: 'Browse the registry for Gmail, Notion, Slack and 9,600+ more. Search, click, connect.',
         url: 'https://registry.modelcontextprotocol.io/',
         host: 'registry.modelcontextprotocol.io',
         color: 'orange',
@@ -211,7 +211,7 @@ export const RESOURCE_GROUPS: ResourceGroup[] = [
 
 /** Big-picture ecosystem facts for the stat strips. */
 export const ECOSYSTEM_FACTS = [
-  { value: '36,000+', label: 'PUBLIC SERVERS' },
+  { value: '48,500+', label: 'PUBLIC SERVERS' },
   { value: '97M+', label: 'SDK DOWNLOADS / MO' },
   { value: '10+', label: 'OFFICIAL SDKS' },
   { value: 'LF', label: 'BACKED BY LINUX FDN' },

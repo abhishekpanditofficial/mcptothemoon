@@ -1,5 +1,5 @@
 import type { Navigate } from '../router'
-import { PEOPLE } from '../content/people'
+import { PEOPLE, PERSON_GROUPS } from '../content/people'
 import Nav from '../components/Nav'
 import PersonCard from '../components/PersonCard'
 import Footer from '../components/Footer'
@@ -18,21 +18,30 @@ export default function Crew({ navigate }: CrewProps) {
         <div className="wrap">
           <header className={styles.header}>
             <span className="eyebrow" style={{ color: 'var(--purple)' }}>
-              [ CREW MANIFEST ]
+              [ HALL OF FAME ]
             </span>
-            <h1 className={styles.title}>PEOPLE TO FOLLOW</h1>
+            <h1 className={styles.title}>HALL OF FAME</h1>
             <p className={styles.intro}>
-              The maintainers, creators and contributors steering MCP. Follow them, read
-              their work, and — when you ship your first server — tag them. They built the
-              launchpad; you bring the rocket.
+              The creators, maintainers and community leaders who built and steer MCP.
+              Follow them, read their work, and — when you ship your first server — tag
+              them. They built the launchpad; you bring the rocket.
             </p>
           </header>
 
-          <div className={styles.crewGrid}>
-            {PEOPLE.map((p) => (
-              <PersonCard key={p.name} person={p} />
-            ))}
-          </div>
+          {PERSON_GROUPS.map((group) => {
+            const members = PEOPLE.filter((p) => p.group === group)
+            if (members.length === 0) return null
+            return (
+              <div key={group} className={styles.crewGroup}>
+                <h2 className={styles.groupTitle}>{group}</h2>
+                <div className={styles.crewGrid}>
+                  {members.map((p) => (
+                    <PersonCard key={p.name} person={p} />
+                  ))}
+                </div>
+              </div>
+            )
+          })}
         </div>
       </section>
 

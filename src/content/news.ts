@@ -196,7 +196,7 @@ export const NEWS: NewsItem[] = [
 /** Short headlines for the scrolling ticker. */
 export const TICKER: string[] = [
   '🚀 Spec 2026-07-28 RC is out — stateless core + Extensions',
-  '🪐 35,000+ servers on Glama · 15,900+ on PulseMCP',
+  '🪐 48,500+ servers on Glama · 19,500+ on PulseMCP',
   '📡 97M+ monthly SDK downloads',
   '💸 Manufact raises $6.3M · Composio $25M · Alpic €5.1M',
   '🏛️ MCP now lives at the Linux Foundation (AAIF)',
