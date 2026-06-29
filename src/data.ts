@@ -1,5 +1,5 @@
 /** Shared external links. One place to rule them all. */
-export const DISCORD_URL = 'https://discord.gg/C25DjtV2R'
+export const DISCORD_URL = 'https://discord.gg/QkYesRzU4r'
 export const DOCS_URL = 'https://modelcontextprotocol.io'
 
 export type ServerColor =

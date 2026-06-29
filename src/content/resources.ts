@@ -163,7 +163,7 @@ export const RESOURCE_GROUPS: ResourceGroup[] = [
         title: 'Join the community',
         kind: 'STEP 4',
         desc: 'Lurk, ask, share what worked. The Discord is where the WAGMI energy lives.',
-        url: 'https://discord.gg/C25DjtV2R',
+        url: 'https://discord.gg/QkYesRzU4r',
         host: 'discord.gg',
         color: 'purple',
       },
