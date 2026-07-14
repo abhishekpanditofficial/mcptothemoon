@@ -5,6 +5,12 @@ import { SERVERS, EVENTS, REGISTRY_COUNTS } from '../data'
 import { NEWS } from '../content/news'
 import { PEOPLE } from '../content/people'
 import { RESOURCE_GROUPS } from '../content/resources'
+import { PARTNERS } from '../content/partners'
+import { MEMBERS } from '../content/members'
+import { CREATORS } from '../content/creators'
+import { POSTS, getPost, postsByAuthor } from '../content/posts'
+import { getCreator } from '../content/creators'
+import { LINKEDIN_VIDEOS } from '../content/videos'
 import Nav from '../components/Nav'
 import Ticker from '../components/Ticker'
 import Launchpad from '../components/Launchpad'
@@ -13,10 +19,16 @@ import ServerCard from '../components/ServerCard'
 import NewsCard from '../components/NewsCard'
 import EventRow from '../components/EventRow'
 import PersonCard from '../components/PersonCard'
+import PartnerCard from '../components/PartnerCard'
+import MemberCard from '../components/MemberCard'
+import CreatorCard from '../components/CreatorCard'
+import PostCard, { formatDate } from '../components/PostCard'
+import VideoCard from '../components/VideoCard'
 import ResourceCard from '../components/ResourceCard'
 import Footer from '../components/Footer'
 import home from './HomeA.module.css'
 import listing from './Listing.module.css'
+import blog from './Blog.module.css'
 import styles from './MobileHome.module.css'
 
 const PREVIEW = 3
@@ -31,6 +43,11 @@ const SECTION_IDS: Partial<Record<Screen, string>> = {
   news: 'm-news',
   events: 'm-events',
   crew: 'm-crew',
+  community: 'm-partners',
+  partners: 'm-partners',
+  members: 'm-members',
+  creators: 'm-creators',
+  blog: 'm-blog',
   resources: 'm-resources',
 }
 
@@ -63,6 +80,13 @@ export default function MobileHome({ counters }: MobileHomeProps) {
   const [openEvents, setOpenEvents] = useState(false)
   const [openCrew, setOpenCrew] = useState(false)
   const [openResources, setOpenResources] = useState(false)
+  // Blog has no separate route on mobile — tapping a post expands it inline.
+  const [openPost, setOpenPost] = useState<string | null>(null)
+
+  const scrollToBlog = () => {
+    setOpenPost(null)
+    document.getElementById('m-blog')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  }
 
   // Nav links scroll to the matching section instead of switching screens.
   const scrollTo = (screen: Screen) => {
@@ -190,6 +214,92 @@ export default function MobileHome({ counters }: MobileHomeProps) {
         </div>
       </section>
 
+      {/* ── PARTNERS ─────────────────────────────────────── */}
+      <section id="m-partners" className={`${styles.section} section`}>
+        <div className="wrap">
+          <span className="eyebrow" style={{ color: 'var(--blue)' }}>
+            [ MISSION BACKERS ]
+          </span>
+          <h2 className={styles.h2}>PARTNERS</h2>
+          <div className={listing.serverGrid}>
+            {PARTNERS.map((p) => (
+              <PartnerCard key={p.name} partner={p} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── MEMBERS ──────────────────────────────────────── */}
+      <section id="m-members" className={`${styles.section} section`}>
+        <div className="wrap">
+          <span className="eyebrow" style={{ color: 'var(--purple)' }}>
+            [ CREW MANIFEST ]
+          </span>
+          <h2 className={styles.h2}>MEMBERS</h2>
+          <div className={listing.crewGrid}>
+            {MEMBERS.map((m, i) => (
+              <MemberCard key={`${m.name}-${i}`} member={m} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── MOONSHOT CREATORS ────────────────────────────── */}
+      <section id="m-creators" className={`${styles.section} section`}>
+        <div className="wrap">
+          <span className="eyebrow" style={{ color: 'var(--green)' }}>
+            [ MOONSHOTS ]
+          </span>
+          <h2 className={styles.h2}>MOONSHOT CREATORS</h2>
+          <div className={listing.crewGrid}>
+            {CREATORS.map((c) => (
+              <CreatorCard
+                key={c.slug}
+                creator={c}
+                postCount={postsByAuthor(c.slug).length}
+                onViewPosts={scrollToBlog}
+              />
+            ))}
+          </div>
+
+          {LINKEDIN_VIDEOS.length > 0 && (
+            <div className={listing.group} style={{ marginTop: 32 }}>
+              <div className={listing.groupHead}>
+                <h3 className={listing.groupTitle}>LATEST ON LINKEDIN</h3>
+                <span className={listing.groupBlurb}>Recent videos.</span>
+              </div>
+              <div className={listing.newsGrid}>
+                {LINKEDIN_VIDEOS.map((v, i) => (
+                  <VideoCard key={`${v.url}-${i}`} video={v} />
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+      </section>
+
+      {/* ── BLOG ─────────────────────────────────────────── */}
+      <section id="m-blog" className={`${styles.section} section`}>
+        <div className="wrap">
+          <span className="eyebrow" style={{ color: 'var(--orange)' }}>
+            [ TRANSMISSIONS ]
+          </span>
+          <h2 className={styles.h2}>BLOG</h2>
+
+          {openPost ? (
+            <MobileArticle slug={openPost} onBack={() => setOpenPost(null)} />
+          ) : POSTS.length === 0 ? (
+            <p className={blog.empty}>No posts yet — check back soon. 🚀</p>
+          ) : (
+            <div className={blog.postGrid}>
+              {POSTS.map((p) => (
+                <PostCard key={p.slug} post={p} onOpen={() => setOpenPost(p.slug)} />
+              ))}
+            </div>
+          )}
+        </div>
+      </section>
+
       {/* ── RESOURCES ────────────────────────────────────── */}
       <section id="m-resources" className={`${styles.section} section`}>
         <div className="wrap">
@@ -221,5 +331,32 @@ export default function MobileHome({ counters }: MobileHomeProps) {
 
       <Footer />
     </div>
+  )
+}
+
+/** Inline post reader for mobile — no routing, just expand/collapse in place. */
+function MobileArticle({ slug, onBack }: { slug: string; onBack: () => void }) {
+  const post = getPost(slug)!
+  const author = getCreator(post.author)
+
+  return (
+    <article>
+      <button className={blog.back} onClick={onBack}>
+        ← BACK TO BLOG
+      </button>
+      <div className={blog.articleHead}>
+        <h3 className={styles.h2}>{post.title}</h3>
+        <div className={blog.byline}>
+          {post.date && <span>{formatDate(post.date)}</span>}
+          {author && (
+            <>
+              <span>·</span>
+              <span>{author.name}</span>
+            </>
+          )}
+        </div>
+      </div>
+      <div className={blog.article} dangerouslySetInnerHTML={{ __html: post.html }} />
+    </article>
   )
 }

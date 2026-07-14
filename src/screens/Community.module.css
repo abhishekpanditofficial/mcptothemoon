@@ -1,0 +1,52 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 22px;
+}
+
+.card {
+  background: var(--card);
+  border: 4px solid var(--ink);
+  box-shadow: var(--shadow-card);
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-align: left;
+  cursor: pointer;
+  transition: transform 0.08s ease, box-shadow 0.08s ease;
+}
+.card:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 10px 10px 0 var(--ink);
+}
+.card:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 var(--ink);
+}
+
+.count {
+  font-family: var(--press);
+  font-size: 28px;
+  line-height: 1;
+}
+
+.name {
+  font-family: var(--press);
+  font-size: 15px;
+  letter-spacing: 0.5px;
+}
+
+.blurb {
+  margin: 0;
+  font-size: 20px;
+  line-height: 1.2;
+  flex: 1;
+}
+
+.go {
+  font-family: var(--press);
+  font-size: 9px;
+  letter-spacing: 0.5px;
+  color: var(--blue);
+}

@@ -15,6 +15,10 @@
 
   --press: 'Press Start 2P', monospace;
   --vt: 'VT323', monospace;
+  /* Legible long-form stack for reading (blog articles) — the pixel body font
+     is great for arcade UI, brutal for paragraphs. */
+  --read: 'Charter', 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia,
+    'Times New Roman', serif;
 
   --shadow-card: 6px 6px 0 var(--ink);
   --shadow-btn: 3px 3px 0 var(--ink);

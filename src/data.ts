@@ -2,6 +2,21 @@
 export const DISCORD_URL = 'https://discord.gg/QkYesRzU4r'
 export const DOCS_URL = 'https://modelcontextprotocol.io'
 
+/** MCP to the Moon's official social accounts. */
+export type SocialIcon = 'linkedin' | 'instagram' | 'x'
+
+export interface Social {
+  label: string
+  url: string
+  icon: SocialIcon
+}
+
+export const SOCIALS: Social[] = [
+  { label: 'LinkedIn', url: 'https://www.linkedin.com/company/mcptothemoon', icon: 'linkedin' },
+  { label: 'Instagram', url: 'https://instagram.com/mcptothemoon', icon: 'instagram' },
+  { label: 'X', url: 'https://x.com/mcptothemoon', icon: 'x' },
+]
+
 export type ServerColor =
   | 'blue'
   | 'black'

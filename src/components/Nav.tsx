@@ -9,16 +9,31 @@ interface NavProps {
   navigate: Navigate
 }
 
-const LINKS: { label: string; screen: Screen }[] = [
+const PRE_LINKS: { label: string; screen: Screen }[] = [
   { label: 'Servers', screen: 'servers' },
   { label: 'News', screen: 'news' },
   { label: 'Events', screen: 'events' },
   { label: 'Crew', screen: 'crew' },
+]
+
+const POST_LINKS: { label: string; screen: Screen }[] = [
+  { label: 'Blog', screen: 'blog' },
   { label: 'Resources', screen: 'resources' },
 ]
 
+/** The Community dropdown — overview first, then the three sub-pages. */
+const COMMUNITY_LINKS: { label: string; screen: Screen }[] = [
+  { label: 'Overview', screen: 'community' },
+  { label: 'Partners', screen: 'partners' },
+  { label: 'Members', screen: 'members' },
+  { label: 'Moonshot Creators', screen: 'creators' },
+]
+
+const COMMUNITY_SCREENS: Screen[] = ['community', 'partners', 'members', 'creators']
+
 export default function Nav({ current, navigate }: NavProps) {
   const homeActive = current === 'homeA' || current === 'homeB'
+  const communityActive = current !== undefined && COMMUNITY_SCREENS.includes(current)
   const [open, setOpen] = useState(false)
 
   const go = (screen: Screen) => {
@@ -26,7 +41,6 @@ export default function Nav({ current, navigate }: NavProps) {
     setOpen(false)
   }
 
-  // Home + section links, shared between the desktop row and the mobile sheet.
   const navButtons = (
     <>
       <button
@@ -36,7 +50,8 @@ export default function Nav({ current, navigate }: NavProps) {
       >
         Home
       </button>
-      {LINKS.map((l) => (
+
+      {PRE_LINKS.map((l) => (
         <button
           key={l.screen}
           className={`btn ${current === l.screen ? 'btn--yellow' : ''}`}
@@ -46,6 +61,42 @@ export default function Nav({ current, navigate }: NavProps) {
           {l.label}
         </button>
       ))}
+
+      {/* Community: opens the overview; hover/focus (desktop) or the sheet (mobile) reveals sub-pages. */}
+      <div className={styles.dropdown}>
+        <button
+          className={`btn ${communityActive ? 'btn--yellow' : ''}`}
+          aria-current={communityActive ? 'page' : undefined}
+          aria-haspopup="true"
+          onClick={() => go('community')}
+        >
+          Community ▾
+        </button>
+        <div className={styles.menu}>
+          {COMMUNITY_LINKS.map((l) => (
+            <button
+              key={l.screen}
+              className={`btn ${current === l.screen ? 'btn--yellow' : ''}`}
+              aria-current={current === l.screen ? 'page' : undefined}
+              onClick={() => go(l.screen)}
+            >
+              {l.label}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {POST_LINKS.map((l) => (
+        <button
+          key={l.screen}
+          className={`btn ${current === l.screen ? 'btn--yellow' : ''}`}
+          aria-current={current === l.screen ? 'page' : undefined}
+          onClick={() => go(l.screen)}
+        >
+          {l.label}
+        </button>
+      ))}
+
       <a
         className="btn btn--blue"
         href={DISCORD_URL}
