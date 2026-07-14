@@ -1,0 +1,97 @@
+.card {
+  background: var(--card);
+  border: 4px solid var(--ink);
+  box-shadow: var(--shadow-card);
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  height: 100%;
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.avatar {
+  flex: 0 0 auto;
+  width: 56px;
+  height: 56px;
+  border: 3px solid var(--ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--press);
+  font-size: 16px;
+  overflow: hidden;
+}
+
+.photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.id {
+  min-width: 0;
+}
+
+.name {
+  font-family: var(--press);
+  font-size: 12px;
+  line-height: 1.4;
+  letter-spacing: 0.5px;
+}
+
+.role {
+  font-size: 19px;
+  color: var(--blue);
+}
+
+.org {
+  font-family: var(--press);
+  font-size: 9px;
+  letter-spacing: 0.5px;
+  color: var(--muted);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-top: auto;
+}
+
+.link,
+.xLink {
+  font-family: var(--press);
+  font-size: 9px;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  border: 3px solid var(--ink);
+  box-shadow: var(--shadow-btn);
+  padding: 10px 12px;
+  transition: transform 0.08s ease, box-shadow 0.08s ease;
+}
+.link {
+  background: var(--ink);
+  color: #fff;
+}
+.xLink {
+  background: var(--card);
+  color: var(--ink);
+}
+.link:hover,
+.xLink:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0 var(--ink);
+}
+.link:active,
+.xLink:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 var(--ink);
+}

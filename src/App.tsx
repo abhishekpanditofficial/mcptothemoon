@@ -9,11 +9,29 @@ import Servers from './screens/Servers'
 import News from './screens/News'
 import Events from './screens/Events'
 import Crew from './screens/Crew'
+import Community from './screens/Community'
+import Partners from './screens/Partners'
+import Members from './screens/Members'
+import MoonshotCreators from './screens/MoonshotCreators'
+import Blog from './screens/Blog'
 import Resources from './screens/Resources'
 import MoonPack from './screens/MoonPack'
 import DirToggle from './components/DirToggle'
 
-const SCREENS: Screen[] = ['homeA', 'homeB', 'servers', 'news', 'events', 'crew', 'resources']
+const SCREENS: Screen[] = [
+  'homeA',
+  'homeB',
+  'servers',
+  'news',
+  'events',
+  'crew',
+  'community',
+  'partners',
+  'members',
+  'creators',
+  'blog',
+  'resources',
+]
 
 /** Allow deep-linking to a screen via ?screen= (used by links from the /moonpack page). */
 function initialScreen(): Screen {
@@ -39,6 +57,14 @@ export default function App() {
     window.scrollTo(0, 0)
   }, [screen])
 
+  // The Blog screen owns ?post=/?author= query params; clear them when we leave
+  // so a stale blog URL doesn't reload into the wrong place.
+  useEffect(() => {
+    if (screen !== 'blog' && window.location.search) {
+      history.replaceState({}, '', window.location.pathname)
+    }
+  }, [screen])
+
   // /moonpack is a standalone landing page with its own nav + footer
   if (path === '/moonpack' || path === '/moonpack/') {
     return <MoonPack />
@@ -59,6 +85,11 @@ export default function App() {
       {screen === 'news' && <News navigate={setScreen} />}
       {screen === 'events' && <Events navigate={setScreen} />}
       {screen === 'crew' && <Crew navigate={setScreen} />}
+      {screen === 'community' && <Community navigate={setScreen} />}
+      {screen === 'partners' && <Partners navigate={setScreen} />}
+      {screen === 'members' && <Members navigate={setScreen} />}
+      {screen === 'creators' && <MoonshotCreators navigate={setScreen} />}
+      {screen === 'blog' && <Blog navigate={setScreen} />}
       {screen === 'resources' && <Resources navigate={setScreen} />}
 
       {isHome && (

@@ -1,0 +1,34 @@
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 3px solid var(--yellow);
+  color: var(--yellow);
+  background: transparent;
+  transition: transform 0.08s ease, background 0.08s ease, color 0.08s ease;
+}
+
+.link svg {
+  width: 18px;
+  height: 18px;
+  display: block;
+  fill: currentColor;
+}
+
+.link:hover {
+  background: var(--yellow);
+  color: var(--ink);
+  transform: translate(-1px, -1px);
+}
+.link:active {
+  transform: translate(1px, 1px);
+}

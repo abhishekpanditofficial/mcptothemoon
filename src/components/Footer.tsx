@@ -1,5 +1,6 @@
 import { DISCORD_URL } from '../data'
 import Rocket from './Rocket'
+import SocialLinks from './SocialLinks'
 import styles from './Footer.module.css'
 
 export default function Footer() {
@@ -35,6 +36,8 @@ export default function Footer() {
             Registry
           </a>
         </div>
+
+        <SocialLinks />
 
         <p className={styles.fine}>
           Not financial advice. Definitely emotional advice. This footer was

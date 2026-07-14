@@ -1,0 +1,74 @@
+.card {
+  background: var(--card);
+  border: 4px solid var(--ink);
+  box-shadow: var(--shadow-card);
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  height: 100%;
+  text-align: left;
+  cursor: pointer;
+  transition: transform 0.08s ease, box-shadow 0.08s ease;
+}
+.card:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 8px 8px 0 var(--ink);
+}
+.card:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 var(--ink);
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  font-family: var(--press);
+  font-size: 8px;
+  letter-spacing: 0.5px;
+  color: var(--muted);
+}
+
+.byline {
+  color: var(--blue);
+}
+
+.title {
+  margin: 0;
+  font-family: var(--press);
+  font-size: 15px;
+  line-height: 1.4;
+}
+
+.summary {
+  margin: 0;
+  font-family: var(--read);
+  font-size: 16px;
+  line-height: 1.5;
+  color: #2c2a20;
+  flex: 1;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tag {
+  font-family: var(--press);
+  font-size: 8px;
+  letter-spacing: 0.5px;
+  border: 2px solid var(--ink);
+  padding: 4px 6px;
+  color: var(--ink);
+}
+
+.readMore {
+  font-family: var(--press);
+  font-size: 9px;
+  letter-spacing: 0.5px;
+  color: var(--blue);
+}
