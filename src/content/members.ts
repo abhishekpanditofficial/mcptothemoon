@@ -41,7 +41,6 @@ export const MEMBERS: Member[] = [
   {
     name: 'Luis Felipe Hernandez Mora',
     role: 'Community Member', // TODO: real designation
-    image: '/members/luis-hernandez.jpg',
     color: 'green',
     link: 'https://www.linkedin.com/in/luis-felipe-hernandez-mora-5b0348160/',
   },
