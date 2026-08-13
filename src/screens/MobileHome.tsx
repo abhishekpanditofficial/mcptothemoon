@@ -10,7 +10,7 @@ import { MEMBERS } from '../content/members'
 import { CREATORS } from '../content/creators'
 import { POSTS, getPost, postsByAuthor } from '../content/posts'
 import { getCreator } from '../content/creators'
-import { LINKEDIN_VIDEOS } from '../content/videos'
+import { TWEETS } from '../content/tweets'
 import Nav from '../components/Nav'
 import Ticker from '../components/Ticker'
 import Launchpad from '../components/Launchpad'
@@ -23,7 +23,7 @@ import PartnerCard from '../components/PartnerCard'
 import MemberCard from '../components/MemberCard'
 import CreatorCard from '../components/CreatorCard'
 import PostCard, { formatDate } from '../components/PostCard'
-import VideoCard from '../components/VideoCard'
+import TweetCard from '../components/TweetCard'
 import ResourceCard from '../components/ResourceCard'
 import Footer from '../components/Footer'
 import home from './HomeA.module.css'
@@ -251,26 +251,27 @@ export default function MobileHome({ counters }: MobileHomeProps) {
             [ MOONSHOTS ]
           </span>
           <h2 className={styles.h2}>MOONSHOT CREATORS</h2>
-          <div className={listing.crewGrid}>
-            {CREATORS.map((c) => (
-              <CreatorCard
-                key={c.slug}
-                creator={c}
-                postCount={postsByAuthor(c.slug).length}
-                onViewPosts={scrollToBlog}
-              />
-            ))}
-          </div>
+          {CREATORS.length > 0 && (
+            <div className={listing.crewGrid}>
+              {CREATORS.map((c) => (
+                <CreatorCard
+                  key={c.slug}
+                  creator={c}
+                  postCount={postsByAuthor(c.slug).length}
+                  onViewPosts={scrollToBlog}
+                />
+              ))}
+            </div>
+          )}
 
-          {LINKEDIN_VIDEOS.length > 0 && (
+          {TWEETS.length > 0 && (
             <div className={listing.group} style={{ marginTop: 32 }}>
               <div className={listing.groupHead}>
-                <h3 className={listing.groupTitle}>LATEST ON LINKEDIN</h3>
-                <span className={listing.groupBlurb}>Recent videos.</span>
+                <h3 className={listing.groupTitle}>SEE WHAT CREATORS HAVE TO SAY</h3>
               </div>
               <div className={listing.newsGrid}>
-                {LINKEDIN_VIDEOS.map((v, i) => (
-                  <VideoCard key={`${v.url}-${i}`} video={v} />
+                {TWEETS.map((t) => (
+                  <TweetCard key={t.id} item={t} />
                 ))}
               </div>
             </div>

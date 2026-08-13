@@ -23,24 +23,7 @@ export interface Creator {
  * PLACEHOLDER DATA: replace names, set `linkedInVideo` to the real LinkedIn
  * post URL, drop a photo in public/creators/ and set `image`. See content/README.md.
  */
-export const CREATORS: Creator[] = [
-  {
-    slug: 'creator-one',
-    name: 'Creator Name',
-    role: 'MCP Builder',
-    // image: '/creators/creator-one.jpg',
-    linkedInVideo: 'https://www.linkedin.com/',
-    color: 'purple',
-  },
-  {
-    slug: 'creator-two',
-    name: 'Creator Name',
-    role: 'Developer Advocate',
-    // image: '/creators/creator-two.jpg',
-    linkedInVideo: 'https://www.linkedin.com/',
-    color: 'green',
-  },
-]
+export const CREATORS: Creator[] = []
 
 export function getCreator(slug: string): Creator | undefined {
   return CREATORS.find((c) => c.slug === slug)
