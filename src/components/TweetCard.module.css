@@ -1,0 +1,108 @@
+.card {
+  background: var(--card);
+  border: 4px solid var(--ink);
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Accent strip + meta row, matching the retro card header look. */
+.head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 12px;
+  border-bottom: 4px solid var(--ink);
+  background: var(--accent, var(--blue));
+}
+
+.badge {
+  font-family: var(--press);
+  font-size: 8px;
+  letter-spacing: 0.5px;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.55);
+  padding: 5px 7px;
+}
+
+.meta {
+  font-family: var(--press);
+  font-size: 8px;
+  letter-spacing: 0.5px;
+  color: rgba(0, 0, 0, 0.72);
+}
+
+/* The react-tweet embed. Shrink its defaults and lock a uniform height so the
+   grid stays tidy regardless of tweet length or media. */
+.embed {
+  flex: 1;
+  height: 260px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 4px;
+  /* Slim scrollbar so the overflow doesn't look clunky. */
+  scrollbar-width: thin;
+  scrollbar-color: var(--ink) transparent;
+}
+.embed::-webkit-scrollbar {
+  width: 6px;
+}
+.embed::-webkit-scrollbar-thumb {
+  background: var(--ink);
+}
+
+.embed :global(.react-tweet-theme) {
+  --tweet-container-margin: 0;
+  --tweet-body-font-size: 0.85rem;
+  --tweet-body-line-height: 1.25rem;
+  --tweet-header-font-size: 0.8rem;
+  --tweet-header-line-height: 1rem;
+  --tweet-quoted-body-font-size: 0.78rem;
+  --tweet-quoted-body-line-height: 1.1rem;
+  --tweet-info-font-size: 0.75rem;
+  --tweet-info-line-height: 1rem;
+  --tweet-actions-font-size: 0.72rem;
+  --tweet-font-family: var(--read), system-ui, sans-serif;
+  margin: 0;
+}
+
+/* Drop react-tweet's own rounded frame — our card provides the border. */
+.embed :global(.react-tweet-theme) > article,
+.embed :global(.react-tweet-theme) > div {
+  border: 0 !important;
+  border-radius: 0 !important;
+  margin: 0 !important;
+}
+
+/* Fallback for missing / unavailable tweets. */
+.fallback {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+}
+
+.fallbackLink {
+  font-family: var(--press);
+  font-size: 9px;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  background: var(--ink);
+  color: #fff;
+  border: 3px solid var(--ink);
+  box-shadow: var(--shadow-btn);
+  padding: 10px 12px;
+  transition: transform 0.08s ease, box-shadow 0.08s ease;
+}
+.fallbackLink:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0 var(--ink);
+}
+.fallbackLink:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 var(--ink);
+}

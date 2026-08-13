@@ -43,22 +43,13 @@ export default function CreatorCard({ creator, postCount, onViewPosts }: Creator
         </div>
       </div>
 
-      <div className={styles.actions}>
-        <a
-          className={styles.link}
-          href={creator.linkedInVideo}
-          target="_blank"
-          rel="noreferrer"
-          aria-label={`${creator.name}'s video on LinkedIn`}
-        >
-          ▶ LINKEDIN VIDEO
-        </a>
-        {postCount > 0 && (
+      {postCount > 0 && (
+        <div className={styles.actions}>
           <button className={styles.xLink} onClick={onViewPosts}>
             THEIR POSTS ({postCount}) →
           </button>
-        )}
-      </div>
+        </div>
+      )}
     </article>
   )
 }
