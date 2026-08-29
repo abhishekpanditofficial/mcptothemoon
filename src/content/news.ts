@@ -15,6 +15,83 @@ export interface NewsItem {
 /** The MISSION LOG — biggest MCP news, newest first. */
 export const NEWS: NewsItem[] = [
   {
+    date: 'AUG 26',
+    year: '2026',
+    tag: 'ENTERPRISE',
+    color: 'blue',
+    title: 'Microsoft ships 10 MCP servers for dev workflows',
+    blurb:
+      'Redmond drops ten production-ready MCP servers, turning AI assistants from code generators into full productivity partners with real-time access to tools, APIs, and data sources.',
+    source: 'developer.microsoft.com',
+    url: 'https://developer.microsoft.com/blog/10-microsoft-mcp-servers-to-accelerate-your-development-workflow/',
+  },
+  {
+    date: 'AUG 26',
+    year: '2026',
+    tag: 'INDUSTRY',
+    color: 'purple',
+    title: 'Digi International launches MCP server for AI workflows',
+    blurb:
+      'Industrial IoT leader Digi releases dedicated MCP server, enabling secure LLM integration with device resource management systems. Enterprise AI meets operational technology.',
+    source: 'digi.com',
+    url: 'https://www.digi.com/company/press-releases/2026/digi-launches-mcp-server-to-power-ai-workflows',
+  },
+  {
+    date: 'JUL 28',
+    year: '2026',
+    tag: 'SPEC',
+    color: 'blue',
+    title: 'MCP goes stateless + routable at scale',
+    blurb:
+      'The 2026-07-28 spec lands with a fully stateless core, header-based routing, and multi round-trip requests that carry their own context. TypeScript, Python, Go, and C# SDKs updated in lockstep. The web-native era begins.',
+    source: 'blog.modelcontextprotocol.io',
+    url: 'https://blog.modelcontextprotocol.io/posts/2026-07-28/',
+  },
+  {
+    date: 'JUL 26',
+    year: '2026',
+    tag: 'SECURITY',
+    color: 'red',
+    title: 'MCP Security Top 10: unauthenticated access ranks #1',
+    blurb:
+      "New research exposes critical gaps: MCP's lack of standard access control leaves servers vulnerable to \"Unauthenticated Access\" and \"Confused Deputy\" attacks. Time to harden your infrastructure.",
+    source: 'innovatecybersecurity.com',
+    url: 'https://innovatecybersecurity.com/news/mcp-security-control-surface/',
+  },
+  {
+    date: 'JUN 26',
+    year: '2026',
+    tag: 'FOUNDATION',
+    color: 'green',
+    title: 'MCP joins the Linux Foundation',
+    blurb:
+      'The Model Context Protocol officially moves under Linux Foundation governance, bringing enterprise-grade trust, open-source momentum, and standardized development for the next era of AI agents.',
+    source: 'github.blog',
+    url: 'https://github.blog/open-source/maintainers/mcp-joins-the-linux-foundation-what-this-means-for-developers-building-the-next-era-of-ai-tools-and-agents/',
+  },
+  {
+    date: 'Q3 26',
+    year: '2026',
+    tag: 'ROADMAP',
+    color: 'yellow',
+    title: 'Server Cards + .well-known URLs coming soon',
+    blurb:
+      'The MCP roadmap reveals MCP Server Cards—a proposed standard for exposing server metadata via `.well-known` URLs—making servers discoverable by browsers, crawlers, and AI agents automatically.',
+    source: 'workos.com',
+    url: 'https://workos.com/blog/everything-your-team-needs-to-know-about-mcp-in-2026',
+  },
+  {
+    date: 'MAR 26',
+    year: '2026',
+    tag: 'MILESTONE',
+    color: 'purple',
+    title: '97M downloads: the protocol war is over',
+    blurb:
+      'Model Context Protocol crosses 97 million monthly SDK downloads, cementing itself as the universal standard for AI tool integration. One protocol to rule them all.',
+    source: 'dev.to',
+    url: 'https://dev.to/alanwest/mcp-hit-97-million-installs-the-protocol-war-is-over-47ab',
+  },
+  {
     date: 'JUL 28',
     year: '2026',
     tag: 'SPEC',
