@@ -140,11 +140,47 @@ export const EVENTS: EventItem[] = [
     title: 'AGNTCon + MCPCon Europe',
     location: 'RAI Amsterdam, NL · Sept 17–18',
     blurb:
-      "The AAIF's flagship European stop — the whole open agentic stack on the canals, under the Linux Foundation.",
+      "The AAIF's flagship European stop — the whole open agentic stack on the canals, under the Linux Foundation. This event brings together developers, researchers, and platform builders to discuss the future of agent infrastructure.",
     color: 'purple',
     url: 'https://events.linuxfoundation.org/agntcon-mcpcon-europe/',
     upcoming: true,
     cfp: 'closed',
+  },
+  {
+    day: '06',
+    month: 'OCT',
+    type: 'SUMMIT',
+    title: 'MCP Dev Summit Toronto',
+    location: 'Toronto, Canada · Oct 5–6',
+    blurb:
+      "A community-driven event with no vendor sales pitches, focusing purely on technical collaboration and open-source development for MCP. Ideal for contributors looking to shape the protocol's future.",
+    color: 'blue',
+    url: 'https://sessionize.com/mcp-dev-summit-toronto-2026/',
+    upcoming: true,
+  },
+  {
+    day: '22',
+    month: 'OCT',
+    type: 'FLAGSHIP',
+    title: 'AGNTCon + MCPCon North America',
+    location: 'San Jose McEnery Convention Center, CA · Oct 22–23',
+    blurb:
+      "The premier gathering for builders, contributors, and organizations advancing AI development with the Model Context Protocol. This is the main North American stop for the Agentic AI Foundation's global tour.",
+    color: 'red',
+    url: 'https://events.linuxfoundation.org/agntcon-mcpcon-north-america/',
+    upcoming: true,
+  },
+  {
+    day: '30',
+    month: 'NOV',
+    type: 'SUMMIT',
+    title: 'MCP Summit Europe',
+    location: 'Paris, France · Nov 30 – Dec 2',
+    blurb:
+      "Join 1,000+ AI engineers, architects, and product pioneers to discuss the future of software technologies and agentic systems. A key event for enterprise adoption trends.",
+    color: 'yellow',
+    url: 'https://joinfost.io/events/mcp-europe',
+    upcoming: true,
   },
   {
     day: '∞',
