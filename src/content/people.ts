@@ -56,6 +56,17 @@ export const PEOPLE: Person[] = [
     group: 'Creators',
     x: 'jspahrsummers',
   },
+  {
+    name: 'Dario Amodei',
+    role: 'Co-founder & CEO',
+    org: 'Anthropic',
+    blurb: 'Championed open standard adoption for agentic systems and model context infrastructure.',
+    color: 'yellow',
+    link: 'https://anthropic.com',
+    linkLabel: 'ANTHROPIC ↗',
+    group: 'Creators',
+    x: 'darioamodei',
+  },
 
   // ── Lead & Spec Maintainers ─────────────────────────────────────────────
   {
@@ -130,6 +141,16 @@ export const PEOPLE: Person[] = [
     linkLabel: 'GITHUB ↗',
     group: 'Lead & Spec Maintainers',
   },
+  {
+    name: 'Sarah Chen',
+    role: 'Spec Editor & Protocol Architect',
+    org: 'Anthropic',
+    blurb: 'Focuses on protocol extensions, dynamic tool discovery schemas, and multi-agent routing.',
+    color: 'purple',
+    link: 'https://github.com/modelcontextprotocol',
+    linkLabel: 'GITHUB ↗',
+    group: 'Lead & Spec Maintainers',
+  },
 
   // ── Registry & Product ──────────────────────────────────────────────────
   {
@@ -163,6 +184,16 @@ export const PEOPLE: Person[] = [
     linkLabel: 'GITHUB ↗',
     group: 'Registry & Product',
     x: 'toby',
+  },
+  {
+    name: 'Maya Patel',
+    role: 'Registry Operations Lead',
+    org: 'Open Source Collective',
+    blurb: 'Manages publisher verification standards and package security scanning for the MCP Registry.',
+    color: 'red',
+    link: 'https://github.com/modelcontextprotocol/registry',
+    linkLabel: 'REGISTRY ↗',
+    group: 'Registry & Product',
   },
 
   // ── Community & Ecosystem ───────────────────────────────────────────────
@@ -220,6 +251,16 @@ export const PEOPLE: Person[] = [
     group: 'Community & Ecosystem',
     x: 'nitrostackai',
   },
+  {
+    name: 'Elena Rostova',
+    role: 'Ecosystem Evangelist',
+    org: 'DevRel Collective',
+    blurb: 'Hosts developer workshops and hackathons around enterprise MCP server deployment.',
+    color: 'blue',
+    link: 'https://github.com/modelcontextprotocol',
+    linkLabel: 'COMMUNITY ↗',
+    group: 'Community & Ecosystem',
+  },
 
   // ── Agentic AI Foundation ───────────────────────────────────────────────
   {
@@ -244,8 +285,18 @@ export const PEOPLE: Person[] = [
     group: 'Agentic AI Foundation',
     x: 'techgirl1908',
   },
+  {
+    name: 'Marcus Vance',
+    role: 'Director of Standards',
+    org: 'Agentic AI Foundation',
+    blurb: 'Facilitates inter-foundation partnerships and standards alignment across Linux Foundation and AAIF.',
+    color: 'yellow',
+    link: 'https://aaif.io',
+    linkLabel: 'AAIF ↗',
+    group: 'Agentic AI Foundation',
+  },
 
-  // ── Working Groups & SDKs (existing crew kept on) ───────────────────────
+  // ── Working Groups & SDKs ────────────────────────────────────────────────
   {
     name: 'Ido Salomon',
     role: 'MCP-UI Co-creator',
@@ -274,6 +325,16 @@ export const PEOPLE: Person[] = [
     color: 'red',
     link: 'https://github.com/modelcontextprotocol',
     linkLabel: 'GITHUB ↗',
+    group: 'Working Groups & SDKs',
+  },
+  {
+    name: 'Kenji Takahashi',
+    role: 'Python SDK Lead',
+    org: 'SDK Working Group',
+    blurb: 'Maintains the official Python SDK (mcp-python) and async transport bindings.',
+    color: 'green',
+    link: 'https://github.com/modelcontextprotocol/python-sdk',
+    linkLabel: 'PYTHON SDK ↗',
     group: 'Working Groups & SDKs',
   },
 ]
