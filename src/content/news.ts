@@ -15,16 +15,59 @@ export interface NewsItem {
 /** The MISSION LOG — biggest MCP news, newest first. */
 export const NEWS: NewsItem[] = [
   {
+    date: 'AUG 28',
+    year: '2026',
+    tag: 'ROADMAP',
+    color: 'purple',
+    title: 'New MCP roadmap targets agent identity & discovery',
+    blurb:
+      'Core maintainers unveil the next protocol roadmap focusing on agent identity via Workload Identity Federation, progressive tool catalog discovery, streamable HTTP unification, and background webhooks.',
+    source: 'blog.modelcontextprotocol.io',
+    url: 'https://blog.modelcontextprotocol.io/posts/mcp-roadmap/',
+  },
+  {
+    date: 'AUG 15',
+    year: '2026',
+    tag: 'SECURITY',
+    color: 'green',
+    title: 'Enterprise-Managed Authorization (EMA) reaches stable',
+    blurb:
+      'Organizations can now centrally manage MCP server permissions with zero-touch onboarding for employees. Adopted out of the box by Anthropic, Microsoft, Okta, and AWS.',
+    source: 'blog.modelcontextprotocol.io',
+    url: 'https://blog.modelcontextprotocol.io/posts/2026-07-28/',
+  },
+  {
+    date: 'AUG 02',
+    year: '2026',
+    tag: 'SDK',
+    color: 'orange',
+    title: 'Official Ruby SDK reaches 1.0.0',
+    blurb:
+      'Shopify and community maintainers ship the 1.0 release of the `mcp` gem, bringing 100% server/client spec conformance and Rack HTTP transport for Ruby and Rails backends.',
+    source: 'blog.modelcontextprotocol.io',
+    url: 'https://blog.modelcontextprotocol.io/posts/ruby-sdk-1-0/',
+  },
+  {
     date: 'JUL 28',
     year: '2026',
     tag: 'SPEC',
     color: 'blue',
-    title: 'Spec 2026-07-28: the stateless era',
+    title: 'Officially launches: the stateless era',
     blurb:
-      'The next spec lands as a release candidate — a stateless protocol core, an Extensions framework, Tasks and serious auth hardening. Servers can finally scale sideways.',
+      'The major spec revision officially lands — removing protocol initialization handshakes, introducing Multi Round-Trip Requests (MRTR) for stateless elicitation, routable HTTP headers, and Tasks as an official extension.',
     source: 'blog.modelcontextprotocol.io',
-    url: 'https://blog.modelcontextprotocol.io/posts/2026-mcp-roadmap/',
-    upcoming: true,
+    url: 'https://blog.modelcontextprotocol.io/posts/2026-07-28/',
+  },
+  {
+    date: 'JUL 20',
+    year: '2026',
+    tag: 'ECOSYSTEM',
+    color: 'yellow',
+    title: 'AWS Bedrock & Cloudflare Workers add day-zero spec support',
+    blurb:
+      'Amazon Bedrock AgentCore and Cloudflare Workers deploy native support for stateless MCP servers, enabling serverless tool execution and background tasks with no sticky session overhead.',
+    source: 'blog.modelcontextprotocol.io',
+    url: 'https://blog.modelcontextprotocol.io/posts/2026-07-28/',
   },
   {
     date: 'JUN 11',
@@ -195,13 +238,14 @@ export const NEWS: NewsItem[] = [
 
 /** Short headlines for the scrolling ticker. */
 export const TICKER: string[] = [
-  '🚀 Spec 2026-07-28 RC is out — stateless core + Extensions',
+  '⚡ Spec 2026-07-28 officially live — stateless core + MRTR + Tasks extension',
+  '💎 Official Ruby SDK 1.0 released by Shopify & core maintainers',
+  '🔒 Enterprise-Managed Authorization (EMA) reaches stable (Okta, Microsoft, Anthropic)',
+  '🗺️ New MCP Roadmap published — agent identity & progressive catalog discovery',
+  '☁️ AWS Bedrock & Cloudflare Workers add day-zero 2026-07-28 spec support',
   '🪐 48,500+ servers on Glama · 19,500+ on PulseMCP',
-  '📡 97M+ monthly SDK downloads',
+  '📡 1B+ total SDK downloads across Python & TypeScript',
   '💸 Manufact raises $6.3M · Composio $25M · Alpic €5.1M',
-  '🏛️ MCP now lives at the Linux Foundation (AAIF)',
-  '🟢 OpenAI · Google · Microsoft · AWS all speak MCP',
-  '🛡️ Patch your servers — read the April security advisory',
-  '🌍 AGNTCon + MCPCon Europe · Amsterdam · Sept 17–18',
-  "🦔 PostHog says: if you didn't capture the event, did it even ship?",
+  '🏛️ MCP lives at the Linux Foundation (AAIF)',
+  '🟢 OpenAI · Google · Microsoft · AWS all speak MCP natively',
 ]
