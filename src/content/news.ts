@@ -46,6 +46,8 @@ export const NEWS: NewsItem[] = [
       'Shopify and community maintainers ship the 1.0 release of the `mcp` gem, bringing 100% server/client spec conformance and Rack HTTP transport for Ruby and Rails backends.',
     source: 'blog.modelcontextprotocol.io',
     url: 'https://blog.modelcontextprotocol.io/posts/ruby-sdk-1-0/',
+  },
+  {
     date: 'AUG 26',
     year: '2026',
     tag: 'ENTERPRISE',
