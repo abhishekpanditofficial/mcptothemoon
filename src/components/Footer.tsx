@@ -26,7 +26,7 @@ export default function Footer() {
             Docs
           </a>
           <a
-            href="https://modelcontextprotocol.io/specification/2025-11-25"
+            href="https://modelcontextprotocol.io/specification/2026-07-28"
             target="_blank"
             rel="noreferrer"
           >
